@@ -43,7 +43,7 @@ public class InputManager : MonoBehaviour {
     }
 	
 	void Update () {
-		if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (wingsUp == false)
             {
@@ -55,7 +55,7 @@ public class InputManager : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (wingsUp == true)
             {
