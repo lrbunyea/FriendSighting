@@ -30,7 +30,21 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     private void Flap()
     {
-        playerBody.AddForce(new Vector3(0, flapStrength, 0), ForceMode.Acceleration);
+        if (InputManager.Instance.goingForwards)
+        {
+            playerBody.AddForce(new Vector3(0, flapStrength, 0), ForceMode.Acceleration);
+            playerBody.AddForce(transform.forward * 100, ForceMode.Force);
+        } else if (InputManager.Instance.goingBackwards)
+        {
+            playerBody.AddForce(new Vector3(0, flapStrength, 0), ForceMode.Acceleration);
+            playerBody.AddForce(-transform.forward * 100, ForceMode.Force);
+        } else if (InputManager.Instance.goingForwards && InputManager.Instance.goingBackwards)
+        {
+            playerBody.AddForce(new Vector3(0, flapStrength, 0), ForceMode.Acceleration);
+        } else
+        {
+            playerBody.AddForce(new Vector3(0, flapStrength, 0), ForceMode.Acceleration);
+        }
     }
 
     /// <summary>

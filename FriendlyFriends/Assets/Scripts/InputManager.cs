@@ -9,8 +9,10 @@ public class InputManager : MonoBehaviour {
     //Singleton pattern
     public static InputManager Instance;
 
-    //private variables
+    //public variables
     public bool wingsUp;
+    public bool goingForwards;
+    public bool goingBackwards;
 
     //Keypress events
     public UnityEvent SuccessfulFlap;
@@ -33,6 +35,8 @@ public class InputManager : MonoBehaviour {
         }
 
         wingsUp = false;
+        goingForwards = false;
+        goingBackwards = false;
 
         //Initalize key press events here
         SuccessfulFlap = new UnityEvent();
@@ -76,6 +80,24 @@ public class InputManager : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             LeftRotation.Invoke();
+        }
+
+        //Forward and backwards movement checks
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            goingForwards = true;
+        }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            goingForwards = false;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            goingBackwards = true;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            goingBackwards = false;
         }
 	}
     #endregion
