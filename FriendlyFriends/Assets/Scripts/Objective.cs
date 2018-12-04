@@ -6,33 +6,52 @@ public class Objective : MonoBehaviour {
 
     #region Variables
     private bool pressedSpace;
+    private bool beingHeld;
+    private Rigidbody rb;
     #endregion
 
     #region Unity API Functions
     private void Start()
     {
         pressedSpace = false;
+        beingHeld = false;
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Check if Player is currently holding the object
+        if (beingHeld)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Clearing parent");
+                transform.parent = null;
+                beingHeld = false;
+                rb.isKinematic = false;
+            }
+        }
+        //Logic for item gathering key presses
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             pressedSpace = true;
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
+        } else if (Input.GetKeyUp(KeyCode.Space))
         {
             pressedSpace = false;
         }
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Collision!");
-        if (pressedSpace)
+        Debug.Log("Trigger entered!");
+        if (pressedSpace && other.gameObject.tag == "Player" && !beingHeld)
         {
+            Debug.Log("Object picked up!");
             transform.SetParent(other.gameObject.transform);
+            beingHeld = true;
+            rb.isKinematic = true;
+            pressedSpace = false;
         }
     }
     #endregion
