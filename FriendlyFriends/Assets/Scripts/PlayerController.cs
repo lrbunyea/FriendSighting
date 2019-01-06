@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     //Physics values
     [SerializeField] float flapStrength;
     [SerializeField] float rightRotation;
+    [SerializeField] float lerpStep = 0.07f;
 
     private Rigidbody playerBody;
     #endregion
@@ -21,6 +22,14 @@ public class PlayerController : MonoBehaviour {
         InputManager.Instance.RightRotation.AddListener(RotateRight);
         InputManager.Instance.LeftRotation.AddListener(RotateLeft);
 	}
+
+    //Keeping mothboy upright should be kept in FixedUpdate
+    void FixedUpdate()
+    {
+        Vector3 fw = transform.forward;
+        fw.y = 0;
+        transform.forward = Vector3.Lerp(transform.forward, fw.normalized, lerpStep);
+    }
     #endregion
 
     #region Movement Functions
