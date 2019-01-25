@@ -11,13 +11,9 @@ public class InputManager : MonoBehaviour {
 
     //public variables
     public bool wingsUp;
-    public bool goingForwards;
-    public bool goingBackwards;
 
     //Keypress events
     public UnityEvent SuccessfulFlap;
-    public UnityEvent RightRotation;
-    public UnityEvent LeftRotation;
     public UnityEvent WingsUp;
     public UnityEvent WingsDown;
     #endregion
@@ -35,19 +31,15 @@ public class InputManager : MonoBehaviour {
         }
 
         wingsUp = false;
-        goingForwards = false;
-        goingBackwards = false;
 
         //Initalize key press events here
         SuccessfulFlap = new UnityEvent();
-        RightRotation = new UnityEvent();
-        LeftRotation = new UnityEvent();
         WingsUp = new UnityEvent();
         WingsDown = new UnityEvent();
     }
 	
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.UpArrow))
+		if (Input.GetAxis("FlapUp") == 1)
         {
             if (wingsUp == false)
             {
@@ -59,7 +51,7 @@ public class InputManager : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetAxis("FlapDown") == 1)
         {
             if (wingsUp == true)
             {
@@ -70,34 +62,6 @@ public class InputManager : MonoBehaviour {
             {
                 return;
             }
-        }
-
-        //Rotation checks
-        if (Input.GetKey(KeyCode.D))
-        {
-            RightRotation.Invoke();
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            LeftRotation.Invoke();
-        }
-
-        //Forward and backwards movement checks
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            goingForwards = true;
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            goingForwards = false;
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            goingBackwards = true;
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            goingBackwards = false;
         }
 	}
     #endregion
