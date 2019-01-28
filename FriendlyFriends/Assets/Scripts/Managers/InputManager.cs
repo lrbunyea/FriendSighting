@@ -63,6 +63,11 @@ public class InputManager : MonoBehaviour {
                 return;
             }
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            GameManager.Instance.SetGameStateToPause();
+        }
 	}
     #endregion
 }
