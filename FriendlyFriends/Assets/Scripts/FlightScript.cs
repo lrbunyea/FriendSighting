@@ -7,6 +7,7 @@ public class FlightScript : MonoBehaviour {
     #region Variables
     [SerializeField] float AmbientSpeed = 100.0f;
     [SerializeField] float flapStrength = 500.0f;
+    [SerializeField] float forwardStrength = 500.0f;
     [SerializeField] float RotationSpeed = 100.0f;
     #endregion
 
@@ -31,8 +32,8 @@ public class FlightScript : MonoBehaviour {
         float roll = 0;
         float pitch = 0;
         float yaw = 0;
-        roll = Input.GetAxis("Roll") * (Time.fixedDeltaTime * RotationSpeed);
-        pitch = Input.GetAxis("Pitch") * (Time.fixedDeltaTime * RotationSpeed);
+        //roll = Input.GetAxis("Roll") * (Time.fixedDeltaTime * RotationSpeed);
+        //pitch = Input.GetAxis("Pitch") * (Time.fixedDeltaTime * RotationSpeed);
         yaw = Input.GetAxis("Yaw") * (Time.fixedDeltaTime * RotationSpeed);
         AddRot.eulerAngles = new Vector3(-pitch, yaw, -roll);
         GetComponent<Rigidbody>().rotation *= AddRot;
@@ -41,7 +42,7 @@ public class FlightScript : MonoBehaviour {
     private void Flap()
     {
         GetComponent<Rigidbody>().AddForce(new Vector3(0, flapStrength, 0), ForceMode.Acceleration);
-        GetComponent<Rigidbody>().AddForce(transform.forward * 100, ForceMode.Force);
+        GetComponent<Rigidbody>().AddForce(transform.forward * (forwardStrength * -Input.GetAxis("Pitch")), ForceMode.Force);
     }
     #endregion
 }
