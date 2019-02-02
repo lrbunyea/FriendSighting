@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4609919060340692}
   - component: {fileID: 33449703608258220}
   - component: {fileID: 23353080750425246}
+  - component: {fileID: 64507010404557132}
   m_Layer: 0
   m_Name: door_bar_01:pCube18
   m_TagString: Untagged
@@ -111,4 +112,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1327713594458948}
+  m_Mesh: {fileID: 4300000, guid: 358cec10a7a4e8e449dbe27ecf4dd1cf, type: 3}
+--- !u!64 &64507010404557132
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1327713594458948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 358cec10a7a4e8e449dbe27ecf4dd1cf, type: 3}

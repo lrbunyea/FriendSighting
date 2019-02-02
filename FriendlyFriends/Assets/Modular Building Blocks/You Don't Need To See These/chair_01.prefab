@@ -9,74 +9,74 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1465756298986696}
+  m_RootGameObject: {fileID: 1797814292394720}
   m_IsPrefabAsset: 1
---- !u!1 &1465756298986696
+--- !u!1 &1627855286548980
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4958555285342654}
+  - component: {fileID: 4546959679622632}
+  - component: {fileID: 33243330659812236}
+  - component: {fileID: 23758298397026904}
+  - component: {fileID: 64357653614786302}
   m_Layer: 0
-  m_Name: Chair_01
+  m_Name: pCube13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1953224341080908
+--- !u!1 &1797814292394720
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4757157911941894}
-  - component: {fileID: 33393657997844674}
-  - component: {fileID: 23410510523538290}
-  - component: {fileID: 64853168788032834}
+  - component: {fileID: 4896344526776078}
   m_Layer: 0
-  m_Name: chair
+  m_Name: chair_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4757157911941894
+--- !u!4 &4546959679622632
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1953224341080908}
+  m_GameObject: {fileID: 1627855286548980}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4958555285342654}
+  m_Father: {fileID: 4896344526776078}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4958555285342654
+--- !u!4 &4896344526776078
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1465756298986696}
+  m_GameObject: {fileID: 1797814292394720}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4757157911941894}
+  - {fileID: 4546959679622632}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23410510523538290
+--- !u!23 &23758298397026904
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1953224341080908}
+  m_GameObject: {fileID: 1627855286548980}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,7 +86,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: eab1008d8b6f5c0448143486c90f09dc, type: 2}
+  - {fileID: 2100000, guid: 5cf1e41642d60594e900059597074a8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,19 +106,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33393657997844674
+--- !u!33 &33243330659812236
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1953224341080908}
-  m_Mesh: {fileID: 4300000, guid: c1c3041ad7b922a4a97fdf102642d442, type: 3}
---- !u!64 &64853168788032834
+  m_GameObject: {fileID: 1627855286548980}
+  m_Mesh: {fileID: 4300000, guid: 0577c5723be04aa4e9bef1a89d9938f3, type: 3}
+--- !u!64 &64357653614786302
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1953224341080908}
+  m_GameObject: {fileID: 1627855286548980}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -126,4 +126,4 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: c1c3041ad7b922a4a97fdf102642d442, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 0577c5723be04aa4e9bef1a89d9938f3, type: 3}
