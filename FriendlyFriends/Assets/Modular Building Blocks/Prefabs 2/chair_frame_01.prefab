@@ -9,34 +9,16 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1304012214994720}
+  m_RootGameObject: {fileID: 1762714551050242}
   m_IsPrefabAsset: 1
---- !u!1 &1244025266461204
+--- !u!1 &1762714551050242
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4175168713141562}
-  - component: {fileID: 33191515776396088}
-  - component: {fileID: 23775613233191878}
-  - component: {fileID: 64376300720763482}
-  m_Layer: 0
-  m_Name: chair_frame
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1304012214994720
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4921837837565658}
+  - component: {fileID: 4798313227315722}
   m_Layer: 0
   m_Name: chair_frame_01
   m_TagString: Untagged
@@ -44,39 +26,57 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4175168713141562
+--- !u!1 &1884482971833184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4194266991437984}
+  - component: {fileID: 33672292320575888}
+  - component: {fileID: 23698219074113890}
+  - component: {fileID: 64462509825523574}
+  m_Layer: 0
+  m_Name: chair_frame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4194266991437984
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1244025266461204}
+  m_GameObject: {fileID: 1884482971833184}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4921837837565658}
+  m_Father: {fileID: 4798313227315722}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4921837837565658
+--- !u!4 &4798313227315722
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1304012214994720}
+  m_GameObject: {fileID: 1762714551050242}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4175168713141562}
+  - {fileID: 4194266991437984}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23775613233191878
+--- !u!23 &23698219074113890
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1244025266461204}
+  m_GameObject: {fileID: 1884482971833184}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -106,19 +106,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33191515776396088
+--- !u!33 &33672292320575888
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1244025266461204}
+  m_GameObject: {fileID: 1884482971833184}
   m_Mesh: {fileID: 4300000, guid: 9f030c125afa4d741b4eb2975f2277f4, type: 3}
---- !u!64 &64376300720763482
+--- !u!64 &64462509825523574
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1244025266461204}
+  m_GameObject: {fileID: 1884482971833184}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

@@ -9,19 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1947871582935256}
+  m_RootGameObject: {fileID: 1229538340064498}
   m_IsPrefabAsset: 1
---- !u!1 &1805375804704806
+--- !u!1 &1145740051136812
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4707229598263866}
-  - component: {fileID: 33101191364542336}
-  - component: {fileID: 23867056107791648}
-  - component: {fileID: 64369137599796518}
+  - component: {fileID: 4986197320593992}
+  - component: {fileID: 33059778442978828}
+  - component: {fileID: 23248799869801922}
+  - component: {fileID: 64409370451703892}
   m_Layer: 0
   m_Name: cushion_3
   m_TagString: Untagged
@@ -29,14 +29,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1947871582935256
+--- !u!1 &1229538340064498
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4337607934664160}
+  - component: {fileID: 4385244613241492}
   m_Layer: 0
   m_Name: couch_seat_cushion_01
   m_TagString: Untagged
@@ -44,39 +44,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4337607934664160
+--- !u!4 &4385244613241492
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1947871582935256}
+  m_GameObject: {fileID: 1229538340064498}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4707229598263866}
+  - {fileID: 4986197320593992}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4707229598263866
+--- !u!4 &4986197320593992
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805375804704806}
+  m_GameObject: {fileID: 1145740051136812}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4337607934664160}
+  m_Father: {fileID: 4385244613241492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23867056107791648
+--- !u!23 &23248799869801922
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805375804704806}
+  m_GameObject: {fileID: 1145740051136812}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -106,19 +106,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33101191364542336
+--- !u!33 &33059778442978828
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805375804704806}
+  m_GameObject: {fileID: 1145740051136812}
   m_Mesh: {fileID: 4300000, guid: 0b4b45f3ca801534ab236ad681f81641, type: 3}
---- !u!64 &64369137599796518
+--- !u!64 &64409370451703892
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805375804704806}
+  m_GameObject: {fileID: 1145740051136812}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
