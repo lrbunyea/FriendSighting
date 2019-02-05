@@ -42,8 +42,8 @@ public class CollisionCam : MonoBehaviour {
 	}
 
     void LateUpdate(){
-        hAxis = Input.GetAxis("Horizontal");
-        vAxis = Input.GetAxis("Vertical");
+        //hAxis = Input.GetAxis("Horizontal");
+        //vAxis = Input.GetAxis("Vertical");
 
         Vector3 tOffset = new Vector3(tTrans.position.x, tTrans.position.y + 2f, tTrans.position.z);
         Quaternion rotation = Quaternion.Euler(camHeight, rotateAround, camPan);

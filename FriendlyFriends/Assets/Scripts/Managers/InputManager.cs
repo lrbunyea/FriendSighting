@@ -11,9 +11,12 @@ public class InputManager : MonoBehaviour {
 
     //public variables
     public bool wingsUp;
+    public bool charging;
 
     //Keypress events
     public UnityEvent SuccessfulFlap;
+    public UnityEvent BuildCharge;
+    public UnityEvent ReleaseCharge;
     public UnityEvent WingsUp;
     public UnityEvent WingsDown;
     #endregion
@@ -31,9 +34,12 @@ public class InputManager : MonoBehaviour {
         }
 
         wingsUp = false;
+        charging = false;
 
         //Initalize key press events here
         SuccessfulFlap = new UnityEvent();
+        BuildCharge = new UnityEvent();
+        ReleaseCharge = new UnityEvent();
         WingsUp = new UnityEvent();
         WingsDown = new UnityEvent();
     }
@@ -57,7 +63,12 @@ public class InputManager : MonoBehaviour {
             {
                 wingsUp = false;
                 WingsDown.Invoke();
-                SuccessfulFlap.Invoke();
+                if (charging)
+                    BuildCharge.Invoke();
+                else
+                    SuccessfulFlap.Invoke();
+                
+
             } else
             {
                 return;
@@ -68,6 +79,16 @@ public class InputManager : MonoBehaviour {
         {
             GameManager.Instance.SetGameStateToPause();
         }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+            charging = true;
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            charging = false;
+            ReleaseCharge.Invoke();
+        }
+            
+
 	}
     #endregion
 }
