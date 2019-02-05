@@ -1432,7 +1432,7 @@ GameObject:
   - component: {fileID: 457271258}
   m_Layer: 0
   m_Name: Furniture n Stuff
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,8 +9,15 @@ public class FlightScript : MonoBehaviour {
     [SerializeField] float flapStrength = 500.0f;
     [SerializeField] float forwardStrength = 500.0f;
     [SerializeField] float RotationSpeed = 100.0f;
+    //charge values
     public float chargeStrength = 0.0f;
     public float chargeMult = 10.0f;
+    //score values
+    private int score = 0;
+    private int obstaclesHit = 0;
+    private int seconds = 0;
+    private int frames = 0;
+    //private int 
     #endregion
 
     #region Unity API Functions
@@ -25,6 +32,22 @@ public class FlightScript : MonoBehaviour {
     void FixedUpdate()
     {
         UpdateFunction();
+        UpdateScore();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Transform t = collision.gameObject.transform;
+        while (t.parent != null)
+        {
+            if (t.parent.tag == "Obstacle")
+            {
+                //print("Obstacle");
+                return;
+            }
+            t = t.parent.transform;
+        }
+        //print("no tag found");
     }
     #endregion
 
@@ -64,6 +87,23 @@ public class FlightScript : MonoBehaviour {
         GetComponent<Rigidbody>().AddForce(new Vector3(0, flapStrength * 2.0f, 0), ForceMode.Acceleration);
         GetComponent<Rigidbody>().AddForce(transform.forward * chargeStrength, ForceMode.VelocityChange);
         chargeStrength = 0;
+    }
+    #endregion
+
+    #region Score Functions
+    private void UpdateScore()
+    {
+        frames++;
+        if (frames == 50)
+        {
+            frames = 0;
+            seconds++;
+        }
+    }
+
+    private void CalculateScore()
+    {
+        print(120 - seconds - obstaclesHit);
     }
     #endregion
 }
