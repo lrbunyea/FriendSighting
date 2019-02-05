@@ -2962,7 +2962,7 @@ MonoBehaviour:
   forwardStrength: 200
   RotationSpeed: 100
   chargeStrength: 0
-  chargeMult: 50
+  chargeMult: 60
 --- !u!54 &913667762
 Rigidbody:
   m_ObjectHideFlags: 0

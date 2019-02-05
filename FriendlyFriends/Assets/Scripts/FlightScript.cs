@@ -55,7 +55,7 @@ public class FlightScript : MonoBehaviour {
     void UpdateFunction()
     {
         if (chargeStrength > 0)
-            chargeStrength -= .5f;
+            chargeStrength -= .2f;
         if (chargeStrength < 0)
             chargeStrength = 0;
 
