@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: 1ea96355089336b41b26930f4187b856
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Base_Head_JNT
+    100002: Hip_JNT
+    100004: Jaw_Base_JNT
+    100006: Left_Clavicle_JNT
+    100008: Left_Elbow_JNT
+    100010: Left_Hand_JNT
+    100012: Left_Prosthetic_Leg_JNT
+    100014: Left_Shoulder_JNT
+    100016: Left_Wrist_JNT
+    100018: Lower_Jaw_Base_JNT
+    100020: Lower_Jaw_JNT
+    100022: Lower_Left_Leg_JNT
+    100024: Lower_Right_Leg_JNT
+    100026: Neck_JNT_1
+    100028: Neck_JNT_2
+    100030: Nessie
+    100032: //RootNode
+    100034: Right_Clavicle_JNT
+    100036: Right_Elbow_JNT
+    100038: Right_Hand_JNT
+    100040: Right_Prosthetic_Leg_JNT
+    100042: Right_Shoulder_JNT
+    100044: Right_Wrist_JNT
+    100046: shoulder_base_JNT
+    100048: spine_JNT_1
+    100050: spine_JNT_2
+    100052: Tail_Base_JNT
+    100054: Tail_JNT_1
+    100056: Tail_JNT_2
+    100058: Top_Jaw_JNT
+    100060: Top_Left_Leg_JNT
+    100062: Top_Right_Leg_JNT
+    400000: Base_Head_JNT
+    400002: Hip_JNT
+    400004: Jaw_Base_JNT
+    400006: Left_Clavicle_JNT
+    400008: Left_Elbow_JNT
+    400010: Left_Hand_JNT
+    400012: Left_Prosthetic_Leg_JNT
+    400014: Left_Shoulder_JNT
+    400016: Left_Wrist_JNT
+    400018: Lower_Jaw_Base_JNT
+    400020: Lower_Jaw_JNT
+    400022: Lower_Left_Leg_JNT
+    400024: Lower_Right_Leg_JNT
+    400026: Neck_JNT_1
+    400028: Neck_JNT_2
+    400030: Nessie
+    400032: //RootNode
+    400034: Right_Clavicle_JNT
+    400036: Right_Elbow_JNT
+    400038: Right_Hand_JNT
+    400040: Right_Prosthetic_Leg_JNT
+    400042: Right_Shoulder_JNT
+    400044: Right_Wrist_JNT
+    400046: shoulder_base_JNT
+    400048: spine_JNT_1
+    400050: spine_JNT_2
+    400052: Tail_Base_JNT
+    400054: Tail_JNT_1
+    400056: Tail_JNT_2
+    400058: Top_Jaw_JNT
+    400060: Top_Left_Leg_JNT
+    400062: Top_Right_Leg_JNT
+    2100000: lambert1
+    4300000: Nessie
+    9500000: //RootNode
+    13700000: Nessie
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 6.0959997
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
