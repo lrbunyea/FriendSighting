@@ -12,12 +12,6 @@ public class FlightScript : MonoBehaviour {
     //charge values
     public float chargeStrength = 0.0f;
     public float chargeMult = 10.0f;
-    //score values
-    private int score = 0;
-    private int obstaclesHit = 0;
-    private int seconds = 0;
-    private int frames = 0;
-    //private int 
     #endregion
 
     #region Unity API Functions
@@ -32,7 +26,8 @@ public class FlightScript : MonoBehaviour {
     void FixedUpdate()
     {
         UpdateFunction();
-        UpdateScore();
+        if (chargeStrength > 0)
+            ScoreManager.Instance.PlayerCharge(chargeStrength);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -42,7 +37,8 @@ public class FlightScript : MonoBehaviour {
         {
             if (t.parent.tag == "Obstacle")
             {
-                ScoreManager.Instance.PlayerCollision();
+                //collision.relativeVelocity.magnitude
+                ScoreManager.Instance.PlayerCollision(collision.relativeVelocity.magnitude);
                 return;
             }
             t = t.parent.transform;
@@ -84,26 +80,13 @@ public class FlightScript : MonoBehaviour {
     private void ReleaseCharge()
     {
         print(transform.forward * (chargeStrength * chargeMult));
-        GetComponent<Rigidbody>().AddForce(new Vector3(0, flapStrength * 2.0f, 0), ForceMode.Acceleration);
-        GetComponent<Rigidbody>().AddForce(transform.forward * chargeStrength, ForceMode.VelocityChange);
-        chargeStrength = 0;
-    }
-    #endregion
-
-    #region Score Functions
-    private void UpdateScore()
-    {
-        frames++;
-        if (frames == 50)
+        if (chargeStrength > 0)
         {
-            frames = 0;
-            seconds++;
+            GetComponent<Rigidbody>().AddForce(new Vector3(0, flapStrength * 1.0f, 0), ForceMode.Acceleration);
+            GetComponent<Rigidbody>().AddForce(transform.forward * chargeStrength, ForceMode.VelocityChange);
         }
-    }
-
-    private void CalculateScore()
-    {
-        print(120 - seconds - obstaclesHit);
+        chargeStrength = 0;
+        ScoreManager.Instance.PlayerCharge(0);
     }
     #endregion
 }

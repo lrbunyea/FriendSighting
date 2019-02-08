@@ -9,10 +9,12 @@ public class ScoreManager : MonoBehaviour
 
     public Text timeText;
     public Text collText;
+    public Text chargeText;
     public int time = 0;
     public int numCollisions = 0;
 
     private int frames = 0;
+    private float playerCharge = 0f;
 
     void Awake()
     {
@@ -30,6 +32,7 @@ public class ScoreManager : MonoBehaviour
     {
         UpdateTime();
         UpdateCollisions();
+        UpdateCharge();
     }
 
     void FixedUpdate()
@@ -43,11 +46,18 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void PlayerCollision()
+    public void PlayerCollision(float magnitude)
     {
         numCollisions++;
         UpdateCollisions();
+        print("Speed of Collision: " + magnitude);
     }
+    public void PlayerCharge(float chargeStrength)
+    {
+        playerCharge = chargeStrength;
+        UpdateCharge();
+    }
+
     private void UpdateTime()
     {
         timeText.text = "Time Left: " + (120 - time);
@@ -55,5 +65,15 @@ public class ScoreManager : MonoBehaviour
     private void UpdateCollisions()
     {
         collText.text = "Collisions: " + numCollisions;
+    }
+    private void UpdateCharge()
+    {
+        int numbars = (int)((20.0 / 50.0) * playerCharge);
+        string bar = "";
+        for (int i = 0; i < numbars; i++)
+        {
+            bar = bar + "I";
+        }
+        chargeText.text = bar;
     }
 }
