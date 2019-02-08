@@ -42,7 +42,7 @@ public class FlightScript : MonoBehaviour {
         {
             if (t.parent.tag == "Obstacle")
             {
-                //print("Obstacle");
+                ScoreManager.Instance.PlayerCollision();
                 return;
             }
             t = t.parent.transform;
