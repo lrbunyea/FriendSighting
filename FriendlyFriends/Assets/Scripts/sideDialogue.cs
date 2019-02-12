@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,7 +78,7 @@ public class sideDialogue : MonoBehaviour {
             currentTextBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(pos.x + 100f, 133f);
             //It makes the text box prefab in the correct position.
 
-            currentTextBox.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>(splitBoyz[0]);
+            currentTextBox.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/"+splitBoyz[0]);
             //this is the line that loads the avatar and puts it in image for the text box prefab.
 
             theTextBoxes.Add(currentTextBox);
