@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class WingController : MonoBehaviour {
 
+    #region Variables
+    [SerializeField] Animator anim;
+    #endregion
+
     #region Unity API Functions
     void Start () {
         FlapDown();
         //Subscribe functions to events
         InputManager.Instance.WingsUp.AddListener(FlapUp);
         InputManager.Instance.WingsDown.AddListener(FlapDown);
+
+        anim = GetComponent<Animator>();
 	}
     #endregion
 
@@ -19,7 +25,7 @@ public class WingController : MonoBehaviour {
     /// </summary>
     void FlapUp()
     {
-        this.transform.Rotate(Vector3.right * -100, Space.World);
+        anim.SetBool("FlapUp", true);
     }
 
     /// <summary>
@@ -27,7 +33,7 @@ public class WingController : MonoBehaviour {
     /// </summary>
     void FlapDown()
     {
-        this.transform.Rotate(Vector3.right * 100, Space.World);
+        anim.SetBool("FlapUp", false);
     }
     #endregion
 }
