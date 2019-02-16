@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -41,7 +42,14 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
-        SetGameStateToMainMenu();
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            SetGameStateToMainMenu();
+        } else
+        {
+            SetGameStateToGameplay();
+        }
+        
 
         PauseGame.AddListener(PauseGameplay);
     }
@@ -82,7 +90,6 @@ public class GameManager : MonoBehaviour {
     public void SetGameStateToPause()
     {
         currentState = GameState.Pause;
-        PauseGame.Invoke();
     }
     #endregion
 }
