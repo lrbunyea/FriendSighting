@@ -151,6 +151,36 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114207917190703230, guid: f4fd800e284733648a2baff31528713e,
+        type: 3}
+      propertyPath: tut1
+      value: 
+      objectReference: {fileID: 1455188007749801672, guid: a2c5c65d8bbef5844879c7ebdfe9aeaf,
+        type: 3}
+    - target: {fileID: 114207917190703230, guid: f4fd800e284733648a2baff31528713e,
+        type: 3}
+      propertyPath: tut2
+      value: 
+      objectReference: {fileID: 2768976428604495396, guid: 95b81270e67737a4d895ca79486266fc,
+        type: 3}
+    - target: {fileID: 114207917190703230, guid: f4fd800e284733648a2baff31528713e,
+        type: 3}
+      propertyPath: tut3
+      value: 
+      objectReference: {fileID: 1113364378205494327, guid: b6ceb27c9d691534aa07eaf68ef876ea,
+        type: 3}
+    - target: {fileID: 114207917190703230, guid: f4fd800e284733648a2baff31528713e,
+        type: 3}
+      propertyPath: tut4
+      value: 
+      objectReference: {fileID: 534907601591642755, guid: ff2389c96a568f741a5e9107ba1c3bdc,
+        type: 3}
+    - target: {fileID: 114207917190703230, guid: f4fd800e284733648a2baff31528713e,
+        type: 3}
+      propertyPath: tut5
+      value: 
+      objectReference: {fileID: 8096858230383567959, guid: 491056c4171f8ce43903203b15067d20,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4fd800e284733648a2baff31528713e, type: 3}
 --- !u!1 &324328337

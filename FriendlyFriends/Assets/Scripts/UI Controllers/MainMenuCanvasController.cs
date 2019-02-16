@@ -22,6 +22,7 @@ public class MainMenuCanvasController : MonoBehaviour
     {
         SceneManager.LoadScene("Level Layout");
         GameManager.Instance.SetGameStateToGameplay();
+        UIManager.Instance.PlayTutorial1();
     }
     #endregion
 }

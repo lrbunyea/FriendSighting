@@ -1,0 +1,3 @@
+nessie::Great job! Now come over here! I need to ask you for a favor.
+nessie::Use the left analog stick to move.
+nessie::Use the right analog stick to rotate the camera.

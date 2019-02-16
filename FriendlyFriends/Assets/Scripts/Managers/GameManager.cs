@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     //Singleton pattern
     public static GameManager Instance;
 
+    private InputManager im;
+
     public UnityEvent PauseGame;
 
     public enum GameState
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour {
         } else
         {
             SetGameStateToGameplay();
+            UIManager.Instance.PlayTutorial1();
         }
         
 
@@ -60,6 +63,17 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region Helper Funtions
+    public void DisableMovement()
+    {
+        im = FindObjectOfType<InputManager>();
+        im.gameObject.SetActive(false);
+    }
+
+    public void EnableMovement()
+    {
+        im.gameObject.SetActive(true);
+    }
+
     private void PauseGameplay()
     {
         Time.timeScale = 0f;

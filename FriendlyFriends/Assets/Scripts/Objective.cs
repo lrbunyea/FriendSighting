@@ -23,7 +23,7 @@ public class Objective : MonoBehaviour {
         //Check if Player is currently holding the object
         if (beingHeld)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 Debug.Log("Clearing parent");
                 transform.parent = null;
@@ -32,10 +32,10 @@ public class Objective : MonoBehaviour {
             }
         }
         //Logic for item gathering key presses
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.B))
         {
             pressedSpace = true;
-        } else if (Input.GetKeyUp(KeyCode.Space))
+        } else if (Input.GetKeyUp(KeyCode.B))
         {
             pressedSpace = false;
         }
