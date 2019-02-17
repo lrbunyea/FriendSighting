@@ -298,6 +298,12 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114726859410027896, guid: c2c6c0c8e7c116a418439d0f7c9470f2,
+        type: 3}
+      propertyPath: chocolatePrefab
+      value: 
+      objectReference: {fileID: 2141943925, guid: 745257833772a524caea9fab04d9f6f1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2c6c0c8e7c116a418439d0f7c9470f2, type: 3}
 --- !u!1 &866625521

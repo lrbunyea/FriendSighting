@@ -11,8 +11,13 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance;
 
     private InputManager im;
+    public bool holdingChange;
+    public bool holdingChocolate;
+    [SerializeField] GameObject chocolatePrefab;
+
 
     public UnityEvent PauseGame;
+    public UnityEvent DeleteObjective;
 
     public enum GameState
     {
@@ -40,6 +45,7 @@ public class GameManager : MonoBehaviour {
 
         //Initialize events
         PauseGame = new UnityEvent();
+        DeleteObjective = new UnityEvent();
     }
 
     void Start()
@@ -52,7 +58,8 @@ public class GameManager : MonoBehaviour {
             SetGameStateToGameplay();
             UIManager.Instance.PlayTutorial1();
         }
-        
+
+        holdingChange = false;
 
         PauseGame.AddListener(PauseGameplay);
     }
@@ -65,7 +72,10 @@ public class GameManager : MonoBehaviour {
     #region Helper Funtions
     public void DisableMovement()
     {
-        im = FindObjectOfType<InputManager>();
+        if (im == null)
+        {
+            im = FindObjectOfType<InputManager>();
+        }
         im.gameObject.SetActive(false);
     }
 
@@ -82,6 +92,21 @@ public class GameManager : MonoBehaviour {
     public void ResumeGameplay()
     {
         Time.timeScale = 1f;
+    }
+
+    public void SetChangeHolding(bool isHolding)
+    {
+        holdingChange = isHolding;
+    }
+
+    public void SetChocolateHolding(bool isHolding)
+    {
+        holdingChocolate = isHolding;
+    }
+
+    public void SpawnChocolate()
+    {
+        Instantiate(chocolatePrefab);
     }
     #endregion
 
