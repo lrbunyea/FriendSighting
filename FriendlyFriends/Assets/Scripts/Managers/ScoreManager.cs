@@ -76,11 +76,12 @@ public class ScoreManager : MonoBehaviour
     private void UpdateCollisions()
     {
         float p1 = (float)(numCollisions * 5);
-        print("Collision Vals: " + p1 + " : " + (p1 + collSpeeds));
-        print((p1 += collSpeeds).ToString());
+        //print("Collision Vals: " + p1 + " : " + (p1 + collSpeeds));
+        p1 += collSpeeds;
         string value = "Student Loans: $" + p1.ToString();
-        print(value);
-        collText.text = "Student Loans: $" + p1.ToString();
+        //print(value);
+        value = string.Format("{0:0.00}", p1);
+        collText.text = "Student Loans: $" + value;
     }
     private void UpdateCharge()
     {

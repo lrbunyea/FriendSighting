@@ -7974,6 +7974,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 714390533}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &716284947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1953224341080908, guid: aacec32a26e59734cb9dd121df506e13,
+    type: 3}
+  m_PrefabInstance: {fileID: 289574617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &716284952
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716284947}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &719610191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14968,7 +14990,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 40, y: -40}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1378691366
 MonoBehaviour:
