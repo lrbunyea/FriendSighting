@@ -10,8 +10,10 @@ public class ScoreManager : MonoBehaviour
     public Text timeText;
     public Text collText;
     public Text chargeText;
-    public int time = 0;
+    public int seconds = 0;
+    public int minutes = 0;
     public int numCollisions = 0;
+    public float collSpeeds = 0;
 
     private int frames = 0;
     private float playerCharge = 0f;
@@ -41,7 +43,13 @@ public class ScoreManager : MonoBehaviour
         if (frames == 50)
         {
             frames = 0;
-            time++;
+            seconds++;
+            UpdateTime();
+        }
+        if (seconds == 60)
+        {
+            seconds = 0;
+            minutes++;
             UpdateTime();
         }
     }
@@ -49,8 +57,9 @@ public class ScoreManager : MonoBehaviour
     public void PlayerCollision(float magnitude)
     {
         numCollisions++;
+        collSpeeds += magnitude;
         UpdateCollisions();
-        print("Speed of Collision: " + magnitude);
+        //print("Speed of Collision: " + magnitude);
     }
     public void PlayerCharge(float chargeStrength)
     {
@@ -60,11 +69,18 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateTime()
     {
-        timeText.text = "Time Left: " + (120 - time);
+        string colon = ":";
+        if (seconds < 10) colon = ":0";
+        timeText.text = "Time: " + minutes + colon + seconds;
     }
     private void UpdateCollisions()
     {
-        collText.text = "Collisions: " + numCollisions;
+        float p1 = (float)(numCollisions * 5);
+        print("Collision Vals: " + p1 + " : " + (p1 + collSpeeds));
+        print((p1 += collSpeeds).ToString());
+        string value = "Student Loans: $" + p1.ToString();
+        print(value);
+        collText.text = "Student Loans: $" + p1.ToString();
     }
     private void UpdateCharge()
     {

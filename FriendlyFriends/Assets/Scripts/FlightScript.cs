@@ -37,6 +37,7 @@ public class FlightScript : MonoBehaviour {
         {
             if (t.parent.tag == "Obstacle")
             {
+                //print("Obstacle Hit");
                 //collision.relativeVelocity.magnitude
                 ScoreManager.Instance.PlayerCollision(collision.relativeVelocity.magnitude);
                 return;
@@ -83,7 +84,7 @@ public class FlightScript : MonoBehaviour {
         if (chargeStrength > 0)
         {
             GetComponent<Rigidbody>().AddForce(new Vector3(0, flapStrength * 1.0f, 0), ForceMode.Acceleration);
-            GetComponent<Rigidbody>().AddForce(transform.forward * chargeStrength, ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(transform.forward * chargeStrength * -1f, ForceMode.VelocityChange);
         }
         chargeStrength = 0;
         ScoreManager.Instance.PlayerCharge(0);

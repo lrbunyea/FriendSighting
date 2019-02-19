@@ -79,10 +79,19 @@ public class InputManager : MonoBehaviour {
         {
             GameManager.Instance.PauseGame.Invoke();
         }
-        
+
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
             charging = true;
         if (Input.GetKeyUp(KeyCode.Space))
+        {
+            charging = false;
+            ReleaseCharge.Invoke();
+        }
+        */
+        if (Input.GetKey(KeyCode.Space))
+            charging = true;
+        else if (!Input.GetKey(KeyCode.Space) && charging)
         {
             charging = false;
             ReleaseCharge.Invoke();
