@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
 
     #region Variables
     //Singleton pattern
     public static UIManager Instance;
 
-    [SerializeField] GameObject PauseCanvas;
+    //Tutroial Dialogue prefabs
+    [SerializeField] GameObject tut1;
+    [SerializeField] GameObject tut2;
+    [SerializeField] GameObject tut3;
+    [SerializeField] GameObject tut4;
+    [SerializeField] GameObject tut5;
     #endregion
 
     #region Unity API Functions
@@ -29,7 +35,6 @@ public class UIManager : MonoBehaviour {
 
     void Start()
     {
-        GameManager.Instance.PauseGame.AddListener(ShowPauseScreen);
     }
 
     void Update()
@@ -38,29 +43,35 @@ public class UIManager : MonoBehaviour {
     }
     #endregion
 
-    #region UI Element Functions
-    public void StartButtonPressed()
+    #region Tutorial Dialogue Functions
+    public void PlayTutorial1()
     {
-        SceneManager.LoadScene("ControlTest1");
+        Instantiate(tut1);
+        GameManager.Instance.DisableMovement();
     }
 
-    public void ReturnToMainMenu()
+    public void PlayTutorial2()
     {
-        SceneManager.LoadScene("MainMenu");
+        Instantiate(tut2);
+        GameManager.Instance.DisableMovement();
     }
 
-    public void HidePauseScreen()
+    public void PlayTutorial3()
     {
-        PauseCanvas.SetActive(false);
-        GameManager.Instance.SetGameStateToGameplay();
-        GameManager.Instance.ResumeGameplay();
+        Instantiate(tut3);
+        GameManager.Instance.DisableMovement();
     }
-    #endregion
 
-    #region Event Functions
-    private void ShowPauseScreen()
+    public void PlayTutorial4()
     {
-        PauseCanvas.SetActive(true);
+        Instantiate(tut4);
+        GameManager.Instance.DisableMovement();
+    }
+
+    public void PlayTutorial5()
+    {
+        Instantiate(tut5);
+        GameManager.Instance.DisableMovement();
     }
     #endregion
 }

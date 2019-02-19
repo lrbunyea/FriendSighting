@@ -175,5 +175,7 @@ public class sideDialogue : MonoBehaviour {
             }
             
         }
+        GameManager.Instance.EnableMovement();
+        Destroy(this.gameObject);
     }
 }

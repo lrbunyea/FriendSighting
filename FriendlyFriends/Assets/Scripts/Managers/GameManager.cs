@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -9,7 +10,14 @@ public class GameManager : MonoBehaviour {
     //Singleton pattern
     public static GameManager Instance;
 
+    private InputManager im;
+    public bool holdingChange;
+    public bool holdingChocolate;
+    [SerializeField] GameObject chocolatePrefab;
+
+
     public UnityEvent PauseGame;
+    public UnityEvent DeleteObjective;
 
     public enum GameState
     {
@@ -37,11 +45,21 @@ public class GameManager : MonoBehaviour {
 
         //Initialize events
         PauseGame = new UnityEvent();
+        DeleteObjective = new UnityEvent();
     }
 
     void Start()
     {
-        SetGameStateToMainMenu();
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            SetGameStateToMainMenu();
+        } else
+        {
+            SetGameStateToGameplay();
+            UIManager.Instance.PlayTutorial1();
+        }
+
+        holdingChange = false;
 
         PauseGame.AddListener(PauseGameplay);
     }
@@ -52,6 +70,20 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region Helper Funtions
+    public void DisableMovement()
+    {
+        if (im == null)
+        {
+            im = FindObjectOfType<InputManager>();
+        }
+        im.gameObject.SetActive(false);
+    }
+
+    public void EnableMovement()
+    {
+        im.gameObject.SetActive(true);
+    }
+
     private void PauseGameplay()
     {
         Time.timeScale = 0f;
@@ -60,6 +92,21 @@ public class GameManager : MonoBehaviour {
     public void ResumeGameplay()
     {
         Time.timeScale = 1f;
+    }
+
+    public void SetChangeHolding(bool isHolding)
+    {
+        holdingChange = isHolding;
+    }
+
+    public void SetChocolateHolding(bool isHolding)
+    {
+        holdingChocolate = isHolding;
+    }
+
+    public void SpawnChocolate()
+    {
+        Instantiate(chocolatePrefab);
     }
     #endregion
 
@@ -82,7 +129,6 @@ public class GameManager : MonoBehaviour {
     public void SetGameStateToPause()
     {
         currentState = GameState.Pause;
-        PauseGame.Invoke();
     }
     #endregion
 }
