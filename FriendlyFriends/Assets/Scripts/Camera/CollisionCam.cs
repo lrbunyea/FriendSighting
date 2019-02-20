@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollisionCam : MonoBehaviour {
 
+    public float lookUpVal = 2f;
+
     public float dAway;
     public float dUp = -2;
     public float smooth = 4.0f;
@@ -52,9 +54,10 @@ public class CollisionCam : MonoBehaviour {
         occludeRay(ref tOffset);
         smoothCamMethod();
 
-        
-        
-        transform.LookAt(tTrans);
+
+        Vector3 newPos = tTrans.position;
+        newPos.y = newPos.y + lookUpVal;
+        transform.LookAt(newPos);
         
         
         if (rotateAround > 360)

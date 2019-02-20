@@ -44,7 +44,7 @@ public class FlightScript : MonoBehaviour {
             }
             t = t.parent.transform;
         }
-        //print("no tag found");
+        print(t.name);
     }
     #endregion
 
