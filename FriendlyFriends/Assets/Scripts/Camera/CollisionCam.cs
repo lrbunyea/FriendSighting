@@ -32,14 +32,14 @@ public class CollisionCam : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         tTrans = target.transform;
-        rotateAround = tTrans.eulerAngles.y - 45f;
+        rotateAround = tTrans.eulerAngles.y + 135f;
         
 	}
 	
 
 
     void LateUpdate(){
-        hAxis = Input.GetAxis("Mouse X");
+        hAxis = Input.GetAxis("Horizontal");
         vAxis = Input.GetAxis("Vertical");
 
         Vector3 tOffset = new Vector3(tTrans.position.x, tTrans.position.y + 2f, tTrans.position.z);
@@ -52,13 +52,18 @@ public class CollisionCam : MonoBehaviour {
         occludeRay(ref tOffset);
         smoothCamMethod();
 
+        
+        
         transform.LookAt(tTrans);
+        
+        
         if (rotateAround > 360)
             rotateAround = 0f;
         else if (rotateAround < 0)
             rotateAround += 360f;
+        
+        rotateAround += Input.GetAxis("Suffering") * camRotSpeed * Time.deltaTime;
 
-        rotateAround += hAxis * camRotSpeed * Time.deltaTime;
         dAway = Mathf.Clamp(dAway += vAxis, minDistance, maxDistance);
 
     }
