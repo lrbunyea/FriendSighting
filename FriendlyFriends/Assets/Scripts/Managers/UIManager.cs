@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
     public void PlayTutorial5()
     {
         Instantiate(tut5);
-        GameManager.Instance.DisableMovement();
+        //GameManager.Instance.DisableMovement();
         ScoreManager.Instance.enableTime(false);
     }
     #endregion

@@ -17,6 +17,7 @@ public class sideDialogue : MonoBehaviour {
     public GameObject theCanvas; //the text box and text prefabs should be on their own canvas. Yay.
     public TextAsset theConvoFam; //this is the text document that the conversation is drawn from. Each new line is a different text box.
 
+
 	// Use this for initialization
 	void Start () {
 
@@ -35,7 +36,7 @@ public class sideDialogue : MonoBehaviour {
 
         //basically all the stringreader stuff takes each individual line in the theConvoFam and adds it to the list of stuff to be read
 
-
+        
         StartCoroutine(theConvo());
 
 
@@ -75,7 +76,7 @@ public class sideDialogue : MonoBehaviour {
             //sentence.
 
             currentTextBox = Instantiate(theTextPrefab, theCanvas.transform);
-            currentTextBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(pos.x + 100f, 133f);
+            currentTextBox.GetComponent<RectTransform>().anchoredPosition = new Vector3(pos.x + 100f, 50f);
             //It makes the text box prefab in the correct position.
 
             currentTextBox.transform.GetChild(2).GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/"+splitBoyz[0]);
