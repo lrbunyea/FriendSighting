@@ -176,6 +176,7 @@ public class sideDialogue : MonoBehaviour {
             
         }
         GameManager.Instance.EnableMovement();
+        ScoreManager.Instance.enableTime(true);
         Destroy(this.gameObject);
     }
 }

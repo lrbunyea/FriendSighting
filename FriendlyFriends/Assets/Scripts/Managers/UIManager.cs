@@ -48,30 +48,35 @@ public class UIManager : MonoBehaviour
     {
         Instantiate(tut1);
         GameManager.Instance.DisableMovement();
+        ScoreManager.Instance.enableTime(false);
     }
 
     public void PlayTutorial2()
     {
         Instantiate(tut2);
         GameManager.Instance.DisableMovement();
+        ScoreManager.Instance.enableTime(false);
     }
 
     public void PlayTutorial3()
     {
         Instantiate(tut3);
         GameManager.Instance.DisableMovement();
+        ScoreManager.Instance.enableTime(false);
     }
 
     public void PlayTutorial4()
     {
         Instantiate(tut4);
         GameManager.Instance.DisableMovement();
+        ScoreManager.Instance.enableTime(false);
     }
 
     public void PlayTutorial5()
     {
         Instantiate(tut5);
         GameManager.Instance.DisableMovement();
+        ScoreManager.Instance.enableTime(false);
     }
     #endregion
 }

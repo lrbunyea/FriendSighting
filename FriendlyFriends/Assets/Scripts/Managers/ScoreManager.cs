@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
 
     private int frames = 0;
     private float playerCharge = 0f;
+    private bool timing = true;
 
     void Awake()
     {
@@ -39,7 +40,7 @@ public class ScoreManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        frames++;
+        if (timing) frames++;
         if (frames == 50)
         {
             frames = 0;
@@ -52,6 +53,11 @@ public class ScoreManager : MonoBehaviour
             minutes++;
             UpdateTime();
         }
+    }
+
+    public void enableTime(bool on)
+    {
+        timing = on;
     }
 
     public void PlayerCollision(float magnitude)
