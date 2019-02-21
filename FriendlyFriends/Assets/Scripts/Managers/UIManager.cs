@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
     }
 
@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
         
         Instantiate(tut1);
         //GameManager.Instance.DisableMovement();
-        ScoreManager.Instance.enableTime(false);
+        //ScoreManager.Instance.enableTime(false);
     }
 
     public void PlayTutorial2()
