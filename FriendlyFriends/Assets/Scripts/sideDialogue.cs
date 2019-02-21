@@ -30,7 +30,7 @@ public class sideDialogue : MonoBehaviour {
         tr = new StringReader(theConvoFam.text);
         while ((sTemp = tr.ReadLine()) != null)
         {
-            Debug.Log(sTemp);
+            //Debug.Log(sTemp);
             sentences.Add(sTemp);
         }
 
@@ -176,8 +176,8 @@ public class sideDialogue : MonoBehaviour {
             }
             
         }
-        GameManager.Instance.EnableMovement();
-        ScoreManager.Instance.enableTime(true);
+        //GameManager.Instance.EnableMovement();
+        //ScoreManager.Instance.enableTime(true);
         Destroy(this.gameObject);
     }
 }

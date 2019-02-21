@@ -10,6 +10,10 @@ public class ScoreManager : MonoBehaviour
     public Text timeText;
     public Text collText;
     public Text chargeText;
+    public Text finalTime;
+    public Text finalScore;
+    public CanvasGroup regScore;
+    public CanvasGroup endLevel;
     public int seconds = 0;
     public int minutes = 0;
     public int numCollisions = 0;
@@ -36,6 +40,8 @@ public class ScoreManager : MonoBehaviour
         UpdateTime();
         UpdateCollisions();
         UpdateCharge();
+        TurnOnOffCanvasGroup(regScore, true);
+        TurnOnOffCanvasGroup(endLevel, false);
     }
 
     void FixedUpdate()
@@ -98,5 +104,27 @@ public class ScoreManager : MonoBehaviour
             bar = bar + "I";
         }
         chargeText.text = bar;
+    }
+
+    public void EndScore()
+    {
+
+        TurnOnOffCanvasGroup(regScore, false);
+        TurnOnOffCanvasGroup(endLevel, true);
+        finalTime.text = timeText.text;
+        finalScore.text = collText.text;
+
+    }
+
+    private void TurnOnOffCanvasGroup(CanvasGroup theGroup, bool isOn)
+    {
+        if (isOn)
+        {
+            theGroup.alpha = 1f;
+        }
+        else
+        {
+            theGroup.alpha = 0f;
+        }
     }
 }
