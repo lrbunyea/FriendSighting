@@ -16,6 +16,7 @@ public class sideDialogue : MonoBehaviour {
     //and how it fades out.
     public GameObject theCanvas; //the text box and text prefabs should be on their own canvas. Yay.
     public TextAsset theConvoFam; //this is the text document that the conversation is drawn from. Each new line is a different text box.
+    AudioSource aud;
 
 
 	// Use this for initialization
@@ -24,7 +25,8 @@ public class sideDialogue : MonoBehaviour {
         sentences = new List<string>();
         theTextBoxes = new List<GameObject>();
 
-
+        aud = GetComponent<AudioSource>();
+        aud.volume = .2f;
         StringReader tr = null;
         string sTemp;
         tr = new StringReader(theConvoFam.text);
@@ -89,6 +91,7 @@ public class sideDialogue : MonoBehaviour {
             foreach (char letter in splitBoyz[1].ToCharArray())
             {
                 currentTextBox.transform.GetChild(1).GetComponent<Text>().text += letter;
+                aud.Play();
                 yield return new WaitForSeconds(.02f); // this is how long it takes each letter to type, change the parameter to something else
             }
 

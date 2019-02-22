@@ -84,6 +84,7 @@ public class InputManager : MonoBehaviour {
         {
             SceneManager.LoadScene("MainMenu");
         }
+
         /*
         if (Input.GetKeyDown(KeyCode.Space))
             charging = true;

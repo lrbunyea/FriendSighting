@@ -9,6 +9,9 @@ public class ChocolateController : MonoBehaviour
     private bool beingHeld;
     private Rigidbody rb;
     #endregion
+    AudioSource aud;
+    public AudioClip pickup;
+    public AudioClip putdown;
 
     #region Unity API Functions
     private void Start()
@@ -19,6 +22,7 @@ public class ChocolateController : MonoBehaviour
         GameManager.Instance.DeleteObjective.AddListener(DeleteOnEvent);
 
         rb.AddForce(new Vector3(1, 0, 0)*1000, ForceMode.Acceleration);
+        aud = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -26,7 +30,7 @@ public class ChocolateController : MonoBehaviour
         //Check if Player is currently holding the object
         if (beingHeld)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
             {
                 Debug.Log("Clearing parent");
                 transform.parent = null;
@@ -35,14 +39,15 @@ public class ChocolateController : MonoBehaviour
                 rb.detectCollisions = true;
                 //rb.useGravity = true;
                 GameManager.Instance.SetChocolateHolding(false);
+                aud.PlayOneShot(putdown);
             }
         }
         //Logic for item gathering key presses
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             pressedKey = true;
         }
-        else if (Input.GetKeyUp(KeyCode.E))
+        else if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("Fire1"))
         {
             pressedKey = false;
         }
@@ -62,6 +67,7 @@ public class ChocolateController : MonoBehaviour
             //rb.useGravity = false;
             GameManager.Instance.SetChocolateHolding(true);
             pressedKey = false;
+            aud.PlayOneShot(pickup);
         }
     }
     #endregion

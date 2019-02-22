@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class FlightScript : MonoBehaviour {
 
     #region Variables
@@ -12,6 +12,14 @@ public class FlightScript : MonoBehaviour {
     //charge values
     public float chargeStrength = 0.0f;
     public float chargeMult = 10.0f;
+
+    
+
+    AudioSource aud;
+    public AudioClip[] flaps;
+    public AudioClip[] crashes;
+    int hitCooldown = 0;
+    System.Random rand;
     #endregion
 
     #region Unity API Functions
@@ -21,6 +29,8 @@ public class FlightScript : MonoBehaviour {
         InputManager.Instance.SuccessfulFlap.AddListener(Flap);
         InputManager.Instance.BuildCharge.AddListener(BuildCharge);
         InputManager.Instance.ReleaseCharge.AddListener(ReleaseCharge);
+        aud = GetComponent<AudioSource>();
+        rand = new System.Random();
     }
 
     void FixedUpdate()
@@ -28,6 +38,8 @@ public class FlightScript : MonoBehaviour {
         UpdateFunction();
         if (chargeStrength > 0)
             ScoreManager.Instance.PlayerCharge(chargeStrength);
+        if (hitCooldown > 0)
+            hitCooldown--;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -40,6 +52,11 @@ public class FlightScript : MonoBehaviour {
                 //print("Obstacle Hit");
                 //collision.relativeVelocity.magnitude
                 ScoreManager.Instance.PlayerCollision(collision.relativeVelocity.magnitude);
+                if (hitCooldown == 0)
+                {
+                    hitCooldown = 25;
+                    aud.PlayOneShot(crashes[rand.Next(crashes.Length)]);
+                }
                 return;
             }
             t = t.parent.transform;
@@ -72,6 +89,8 @@ public class FlightScript : MonoBehaviour {
     {
         GetComponent<Rigidbody>().AddForce(new Vector3(0, flapStrength, 0), ForceMode.Acceleration);
         GetComponent<Rigidbody>().AddForce(transform.forward * (forwardStrength * -Input.GetAxis("Pitch")), ForceMode.Force);
+        aud.PlayOneShot(flaps[rand.Next(flaps.Length)]);
+
     }
 
     private void BuildCharge()

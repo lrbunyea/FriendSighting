@@ -21,8 +21,8 @@ public class MainMenuCanvasController : MonoBehaviour
     public void StartButtonPressed()
     {
         SceneManager.LoadScene("Level Layout");
-        GameManager.Instance.SetGameStateToGameplay();
-        UIManager.Instance.PlayTutorial1();
+        //GameManager.Instance.SetGameStateToGameplay();
+        //UIManager.Instance.PlayTutorial1();
     }
     #endregion
 }

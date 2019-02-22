@@ -9,6 +9,9 @@ public class ChangeController : MonoBehaviour {
     private bool beingHeld;
     private Rigidbody rb;
     #endregion
+    AudioSource aud;
+    public AudioClip pickup;
+    public AudioClip putdown;
 
     #region Unity API Functions
     private void Start()
@@ -17,6 +20,7 @@ public class ChangeController : MonoBehaviour {
         beingHeld = false;
         rb = GetComponent<Rigidbody>();
         GameManager.Instance.DeleteObjective.AddListener(DeleteOnEvent);
+        aud = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -24,7 +28,7 @@ public class ChangeController : MonoBehaviour {
         //Check if Player is currently holding the object
         if (beingHeld)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
             {
                 Debug.Log("Clearing parent");
                 transform.parent = null;
@@ -33,13 +37,14 @@ public class ChangeController : MonoBehaviour {
                 rb.detectCollisions = true;
                 //rb.useGravity = true;
                 GameManager.Instance.SetChangeHolding(false);
+                aud.PlayOneShot(putdown);
             }
         }
         //Logic for item gathering key presses
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             pressedKey = true;
-        } else if (Input.GetKeyUp(KeyCode.E))
+        } else if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("Fire1"))
         {
             pressedKey = false;
         }
@@ -59,6 +64,7 @@ public class ChangeController : MonoBehaviour {
             //rb.useGravity = false;
             GameManager.Instance.SetChangeHolding(true);
             pressedKey = false;
+            aud.PlayOneShot(pickup);
         }
     }
     #endregion
