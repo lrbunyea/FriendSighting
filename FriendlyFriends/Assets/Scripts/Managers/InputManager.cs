@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour {
     }
 	
 	void Update () {
-		if (Input.GetAxis("FlapUp") == 1)
+		if (Input.GetButtonDown("FlapUp"))
         {
             if (wingsUp == false)
             {
@@ -58,7 +58,7 @@ public class InputManager : MonoBehaviour {
             }
         }
 
-        if (Input.GetAxis("FlapDown") == 1)
+        if (Input.GetButtonDown("FlapDown"))
         {
             if (wingsUp == true)
             {
