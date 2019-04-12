@@ -6,8 +6,8 @@ public class FlightScript : MonoBehaviour {
 
     #region Variables
     [SerializeField] float AmbientSpeed = 100.0f;
-    [SerializeField] float flapStrength = 500.0f;
-    [SerializeField] float forwardStrength = 500.0f;
+    [SerializeField] float flapStrength = 5000.0f * 5000f;
+    [SerializeField] float forwardStrength = 5000.0f * 5000f;
     [SerializeField] float RotationSpeed = 100.0f;
     //charge values
     public float chargeStrength = 0.0f;
