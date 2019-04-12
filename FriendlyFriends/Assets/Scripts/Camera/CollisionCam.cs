@@ -10,6 +10,7 @@ public class CollisionCam : MonoBehaviour {
     public float dUp = -2;
     public float smooth = 4.0f;
     public float rotateAround = 70f;
+    public float subtractRotate = 90f;
 
     public float minDistance = 1;
     public float maxDistance = 2;
@@ -24,7 +25,7 @@ public class CollisionCam : MonoBehaviour {
     RaycastHit hit;
     float camHeight = 55f;
     float camPan = 0f;
-    float camRotSpeed = 180f;
+    public float camRotSpeed = 100f;
     Vector3 camPos;
     Vector3 camMask;
     Vector3 followMask;
@@ -41,7 +42,7 @@ public class CollisionCam : MonoBehaviour {
 
 
     void LateUpdate(){
-        hAxis = Input.GetAxis("Mouse X");
+        hAxis = Input.GetAxis("Yaw");
         vAxis = Input.GetAxis("Vertical");
 
         Vector3 tOffset = new Vector3(tTrans.position.x, tTrans.position.y + 2f, tTrans.position.z);
@@ -64,8 +65,9 @@ public class CollisionCam : MonoBehaviour {
             rotateAround = 0f;
         else if (rotateAround < 0)
             rotateAround += 360f;
-        
-        rotateAround += hAxis * camRotSpeed * Time.deltaTime;
+
+        //rotateAround += hAxis * camRotSpeed * Time.fixedDeltaTime;
+        rotateAround = target.GetComponent<FlightScript>().cameraSpot - subtractRotate;
 
         dAway = Mathf.Clamp(dAway += vAxis, minDistance, maxDistance);
 

@@ -13,7 +13,7 @@ public class FlightScript : MonoBehaviour {
     public float chargeStrength = 0.0f;
     public float chargeMult = 10.0f;
 
-    
+    public float cameraSpot = 0;
 
     AudioSource aud;
     public AudioClip[] flaps;
@@ -83,6 +83,7 @@ public class FlightScript : MonoBehaviour {
         yaw = Input.GetAxis("Yaw") * (Time.fixedDeltaTime * RotationSpeed);
         AddRot.eulerAngles = new Vector3(-pitch, yaw, -roll);
         GetComponent<Rigidbody>().rotation *= AddRot;
+        cameraSpot = GetComponent<Rigidbody>().rotation.eulerAngles.y;
     }
 
     private void Flap()
