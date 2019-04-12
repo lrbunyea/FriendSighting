@@ -6,7 +6,7 @@ public class ChangeController : MonoBehaviour {
 
     #region Variables
     private bool pressedKey;
-    private bool beingHeld;
+    //private bool beingHeld;
     private Rigidbody rb;
     #endregion
     AudioSource aud;
@@ -17,7 +17,7 @@ public class ChangeController : MonoBehaviour {
     private void Start()
     {
         pressedKey = false;
-        beingHeld = false;
+        //beingHeld = false;
         rb = GetComponent<Rigidbody>();
         GameManager.Instance.DeleteObjective.AddListener(DeleteOnEvent);
         aud = GetComponent<AudioSource>();
@@ -25,6 +25,7 @@ public class ChangeController : MonoBehaviour {
 
     private void Update()
     {
+        /*
         //Check if Player is currently holding the object
         if (beingHeld)
         {
@@ -40,8 +41,9 @@ public class ChangeController : MonoBehaviour {
                 aud.PlayOneShot(putdown);
             }
         }
+        */
         //Logic for item gathering key presses
-        else if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             pressedKey = true;
         } else if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("Fire1"))
@@ -54,11 +56,11 @@ public class ChangeController : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
         //Debug.Log("Trigger entered!");
-        if (pressedKey && other.gameObject.tag == "Player" && !beingHeld)
+        if (pressedKey && other.gameObject.tag == "Player")
         {
             Debug.Log("Object picked up!");
             transform.SetParent(other.gameObject.transform);
-            beingHeld = true;
+            //beingHeld = true;
             rb.isKinematic = true;
             rb.detectCollisions = false;
             //rb.useGravity = false;
