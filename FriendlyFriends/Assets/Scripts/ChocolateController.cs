@@ -6,7 +6,7 @@ public class ChocolateController : MonoBehaviour
 {
     #region Variables
     private bool pressedKey;
-    private bool beingHeld;
+    //private bool beingHeld;
     private Rigidbody rb;
     #endregion
     AudioSource aud;
@@ -17,7 +17,7 @@ public class ChocolateController : MonoBehaviour
     private void Start()
     {
         pressedKey = false;
-        beingHeld = false;
+        //beingHeld = false;
         rb = GetComponent<Rigidbody>();
         GameManager.Instance.DeleteObjective.AddListener(DeleteOnEvent);
 
@@ -27,6 +27,7 @@ public class ChocolateController : MonoBehaviour
 
     private void Update()
     {
+        /*
         //Check if Player is currently holding the object
         if (beingHeld)
         {
@@ -42,8 +43,9 @@ public class ChocolateController : MonoBehaviour
                 aud.PlayOneShot(putdown);
             }
         }
+        */
         //Logic for item gathering key presses
-        else if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             pressedKey = true;
         }
@@ -57,11 +59,11 @@ public class ChocolateController : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //Debug.Log("Trigger entered!");
-        if (pressedKey && other.gameObject.tag == "Player" && !beingHeld)
+        if (pressedKey && other.gameObject.tag == "Player")
         {
             Debug.Log("Object picked up!");
             transform.SetParent(other.gameObject.transform);
-            beingHeld = true;
+            //beingHeld = true;
             rb.isKinematic = true;
             rb.detectCollisions = false;
             //rb.useGravity = false;
