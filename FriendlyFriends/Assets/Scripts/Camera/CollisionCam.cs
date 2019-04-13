@@ -25,7 +25,7 @@ public class CollisionCam : MonoBehaviour {
     RaycastHit hit;
     float camHeight = 55f;
     float camPan = 0f;
-    public float camRotSpeed = 100f;
+    public float camRotSpeed = 217f;
     Vector3 camPos;
     Vector3 camMask;
     Vector3 followMask;
