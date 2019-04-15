@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChangeController : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class ChangeController : MonoBehaviour {
     AudioSource aud;
     public AudioClip pickup;
     public AudioClip putdown;
+    public Image jarGet;
 
     #region Unity API Functions
     private void Start()
@@ -21,6 +23,7 @@ public class ChangeController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         GameManager.Instance.DeleteObjective.AddListener(DeleteOnEvent);
         aud = GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -67,6 +70,7 @@ public class ChangeController : MonoBehaviour {
             GameManager.Instance.SetChangeHolding(true);
             pressedKey = false;
             aud.PlayOneShot(pickup);
+            StartCoroutine(getThatJar());
         }
     }
     #endregion
@@ -75,5 +79,25 @@ public class ChangeController : MonoBehaviour {
     {
         GameManager.Instance.SetChangeHolding(false);
         Destroy(this.gameObject);
+    }
+
+    private IEnumerator getThatJar()
+    {
+        jarGet.transform.localScale = new Vector3(.01f, .01f, .01f);
+
+        while (jarGet.GetComponent<CanvasGroup>().alpha < 1)
+        {
+            jarGet.GetComponent<CanvasGroup>().alpha += .1f;
+            jarGet.transform.localScale += new Vector3(.1f, .1f, .1f);
+            yield return new WaitForSeconds(.0005f);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        while (jarGet.GetComponent<CanvasGroup>().alpha > 0)
+        {
+            jarGet.GetComponent<CanvasGroup>().alpha -= .05f;
+            yield return new WaitForSeconds(.001f);
+        }
     }
 }

@@ -127,4 +127,6 @@ public class ScoreManager : MonoBehaviour
             theGroup.alpha = 0f;
         }
     }
+
+   
 }

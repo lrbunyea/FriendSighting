@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 public class FlightScript : MonoBehaviour {
 
@@ -15,11 +16,16 @@ public class FlightScript : MonoBehaviour {
 
     public float cameraSpot = 0;
 
+    public CanvasGroup loanVignette;
+
+    public ParticleSystem ohNoMoney;
+
     AudioSource aud;
     public AudioClip[] flaps;
     public AudioClip[] crashes;
     int hitCooldown = 0;
     System.Random rand;
+
     #endregion
 
     #region Unity API Functions
@@ -31,6 +37,8 @@ public class FlightScript : MonoBehaviour {
         InputManager.Instance.ReleaseCharge.AddListener(ReleaseCharge);
         aud = GetComponent<AudioSource>();
         rand = new System.Random();
+        ohNoMoney = GetComponent<ParticleSystem>();
+        ohNoMoney.Stop();
     }
 
     void FixedUpdate()
@@ -57,6 +65,7 @@ public class FlightScript : MonoBehaviour {
                     hitCooldown = 25;
                     aud.PlayOneShot(crashes[rand.Next(crashes.Length)]);
                 }
+                StartCoroutine(hitBorder());
                 return;
             }
             t = t.parent.transform;
@@ -110,4 +119,24 @@ public class FlightScript : MonoBehaviour {
         ScoreManager.Instance.PlayerCharge(0);
     }
     #endregion
+
+
+    private IEnumerator hitBorder()
+    {
+        ohNoMoney.Play();
+        while (loanVignette.alpha < 1)
+        {
+            loanVignette.alpha += .1f;
+            yield return new WaitForSeconds(.0005f);
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        while (loanVignette.alpha > 0)
+        {
+            loanVignette.alpha -= .05f;
+            yield return new WaitForSeconds(.001f);
+        }
+        ohNoMoney.Stop();
+    }
 }
