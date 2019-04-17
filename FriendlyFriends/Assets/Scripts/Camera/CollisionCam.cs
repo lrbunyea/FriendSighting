@@ -10,7 +10,7 @@ public class CollisionCam : MonoBehaviour {
     public float dUp = -2;
     public float smooth = 4.0f;
     public float rotateAround = 70f;
-    public float subtractRotate = 90f;
+    public float subtractRotate = 217f;
 
     public float minDistance = 1;
     public float maxDistance = 2;
