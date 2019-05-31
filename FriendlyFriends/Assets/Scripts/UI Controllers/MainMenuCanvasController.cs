@@ -20,7 +20,7 @@ public class MainMenuCanvasController : MonoBehaviour
     #region UI Element Functions
     public void StartButtonPressed()
     {
-        SceneManager.LoadScene("Level Layout");
+        SceneManager.LoadScene("Level Layout (PC)");
         //GameManager.Instance.SetGameStateToGameplay();
         //UIManager.Instance.PlayTutorial1();
     }

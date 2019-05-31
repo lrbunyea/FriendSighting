@@ -1,0 +1,3 @@
+nessie::Hey, dude! What are you doing on the ground?
+nessie::Why don't you try flying upwards?
+nessie::Alternate pressing the up arrow and the down arrow to flap your wings!
