@@ -26,6 +26,11 @@ public class FlightScript : MonoBehaviour {
     int hitCooldown = 0;
     System.Random rand;
 
+
+    Vector3 correctForward;
+    Quaternion correctRot;
+    float correctYaw;
+
     #endregion
 
     #region Unity API Functions
@@ -39,6 +44,9 @@ public class FlightScript : MonoBehaviour {
         rand = new System.Random();
         ohNoMoney = GetComponent<ParticleSystem>();
         ohNoMoney.Stop();
+        correctForward = transform.TransformDirection(Vector3.forward);
+        correctYaw = Input.GetAxis("Yaw");
+        correctRot = transform.rotation;
     }
 
     void FixedUpdate()
@@ -92,13 +100,17 @@ public class FlightScript : MonoBehaviour {
         yaw = Input.GetAxis("Yaw") * (Time.fixedDeltaTime * RotationSpeed);
         AddRot.eulerAngles = new Vector3(-pitch, yaw, -roll);
         GetComponent<Rigidbody>().rotation *= AddRot;
-        cameraSpot = GetComponent<Rigidbody>().rotation.eulerAngles.y;
+        correctRot *= AddRot;
+        correctForward = correctRot * Vector3.forward;
+        //cameraSpot = GetComponent<Rigidbody>().rotation.eulerAngles.y;
+        cameraSpot = correctRot.eulerAngles.y;
     }
 
     private void Flap()
     {
         GetComponent<Rigidbody>().AddForce(new Vector3(0, flapStrength, 0), ForceMode.Acceleration);
-        GetComponent<Rigidbody>().AddForce(transform.forward * (forwardStrength * -Input.GetAxis("Pitch")), ForceMode.Force);
+        //GetComponent<Rigidbody>().AddForce(transform.forward * (forwardStrength * -Input.GetAxis("Pitch")), ForceMode.Force);
+        GetComponent<Rigidbody>().AddForce(correctForward * (forwardStrength * -Input.GetAxis("Pitch")), ForceMode.Force);
         aud.PlayOneShot(flaps[rand.Next(flaps.Length)]);
 
     }
