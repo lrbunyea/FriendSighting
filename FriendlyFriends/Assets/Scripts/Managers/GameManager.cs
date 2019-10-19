@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
     public bool holdingChange;
     public bool holdingChocolate;
     [SerializeField] GameObject chocolatePrefab;
+    public GameObject[] objectiveList;
+    private int objectiveNum;
 
 
     public UnityEvent PauseGame;
@@ -50,14 +52,17 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
+        objectiveNum = 0;
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             SetGameStateToMainMenu();
         } else
         {
             SetGameStateToGameplay();
-            UIManager.Instance.PlayTutorial1();
+            //UIManager.Instance.PlayTutorial1();
+            UpdateObjective();
         }
+
 
         holdingChange = false;
 
@@ -129,6 +134,20 @@ public class GameManager : MonoBehaviour {
     public void SetGameStateToPause()
     {
         currentState = GameState.Pause;
+    }
+
+    public void UpdateObjective()
+    {
+        UIManager.Instance.PlayTutorialNum(objectiveNum);
+        if (objectiveNum < objectiveList.Length)
+        {
+            objectiveNum++;
+        } 
+    }
+
+    public GameObject GetCurObjective()
+    {
+        return objectiveList[objectiveNum];
     }
     #endregion
 }

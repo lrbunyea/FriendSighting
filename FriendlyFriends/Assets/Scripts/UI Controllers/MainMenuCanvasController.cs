@@ -13,7 +13,17 @@ public class MainMenuCanvasController : MonoBehaviour
     
     void Update()
     {
-        
+        if (Input.GetKeyDown("joystick button 0"))
+            {
+            if (SceneManager.GetActiveScene().name == "MainMenu")
+            {
+                SceneManager.LoadScene("Letter");
+            }
+            else if (SceneManager.GetActiveScene().name == "Letter")
+            {
+                SceneManager.LoadScene("Level Layout (PC)");
+            }
+        }
     }
     #endregion
 
@@ -24,5 +34,6 @@ public class MainMenuCanvasController : MonoBehaviour
         //GameManager.Instance.SetGameStateToGameplay();
         //UIManager.Instance.PlayTutorial1();
     }
+
     #endregion
 }

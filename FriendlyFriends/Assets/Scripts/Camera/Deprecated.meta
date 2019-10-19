@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:FriendlyFriends/Assets/Scripts/Camera/Deprecated.meta
 fileFormatVersion: 2
 guid: 9371a4b2aa313db4abaaa5d5652c6c69
 folderAsset: yes
@@ -6,3 +7,13 @@ DefaultImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 6a0603e2deaa9cc428966f70bde94b3e
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> Stashed changes:FriendlyFriends/Assets/Modular Building Blocks/Level Layout.meta

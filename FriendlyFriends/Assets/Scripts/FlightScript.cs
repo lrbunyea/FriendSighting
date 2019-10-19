@@ -73,6 +73,8 @@ public class FlightScript : MonoBehaviour {
                     hitCooldown = 25;
                     aud.PlayOneShot(crashes[rand.Next(crashes.Length)]);
                 }
+                StopCoroutine(hitBorder());
+                ohNoMoney.Stop();
                 StartCoroutine(hitBorder());
                 return;
             }

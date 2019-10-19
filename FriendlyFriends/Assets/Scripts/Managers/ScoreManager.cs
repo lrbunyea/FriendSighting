@@ -81,9 +81,11 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateTime()
     {
+        /*
         string colon = ":";
         if (seconds < 10) colon = ":0";
         timeText.text = "Time: " + minutes + colon + seconds;
+        */
     }
     private void UpdateCollisions()
     {
@@ -111,7 +113,7 @@ public class ScoreManager : MonoBehaviour
 
         TurnOnOffCanvasGroup(regScore, false);
         TurnOnOffCanvasGroup(endLevel, true);
-        finalTime.text = timeText.text;
+        //finalTime.text = timeText.text;
         finalScore.text = collText.text;
 
     }
