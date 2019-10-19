@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5527691355814012649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574418291916222243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29dbcc57f5369e4a8db3b46d8a7cee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6101760271749497568}
 --- !u!1 &6100924567800963652
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1003,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2586462717542325613}
+  - {fileID: 2574418291915797315}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2176,6 +2190,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 6101760271749497568}
+--- !u!1001 &2574418291916188151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6100924568835518146}
+    m_Modifications:
+    - target: {fileID: 100052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_Name
+      value: mothman_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.12278779
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6963643
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.12278779
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6963643
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5d8cbfb279a25c8458fd795d292a1d36, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f2ed6396521b6a14c804aca7039b8750, type: 3}
+--- !u!1 &2574418291916222243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100052, guid: f2ed6396521b6a14c804aca7039b8750,
+    type: 3}
+  m_PrefabInstance: {fileID: 2574418291916188151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2574418291915797315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400052, guid: f2ed6396521b6a14c804aca7039b8750,
+    type: 3}
+  m_PrefabInstance: {fileID: 2574418291916188151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2586462717542325610
 PrefabInstance:
   m_ObjectHideFlags: 0
