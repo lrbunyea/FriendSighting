@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - PauseCanvas
   - Tutorial
+  - end
   layers:
   - Default
   - TransparentFX

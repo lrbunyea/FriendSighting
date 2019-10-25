@@ -21,7 +21,7 @@ public class MainMenuCanvasController : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name == "Letter")
             {
-                SceneManager.LoadScene("Level Layout (PC)");
+                SceneManager.LoadScene("Bigfoot Caf Level");
             }
         }
     }

@@ -21,8 +21,17 @@ public class ObjectiveScript : MonoBehaviour
     {
         if (GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject))
         {
-            GameManager.Instance.UpdateObjective();
-            Destroy(this.gameObject);
+            if (this.gameObject.tag == "end")
+            {
+                ScoreManager.Instance.EndScore();
+                Destroy(this.gameObject.GetComponent<Collider>());
+            }
+            else if (other.tag == "Player")
+            {
+                GameManager.Instance.UpdateObjective();
+                Destroy(this.gameObject.GetComponent<Collider>());
+            }
+            
         }
     }
 }

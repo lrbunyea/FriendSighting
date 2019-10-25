@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject tut5;
 
     public GameObject[] tutorialObjects;
+    public string[] objectives;
 
     public Image objectiveBack;
     public Text objectiveText;
@@ -145,6 +146,9 @@ public class UIManager : MonoBehaviour
     {
         List<GameObject> objects = new List<GameObject>();
 
+        objectiveBack.GetComponent<CanvasGroup>().alpha = 1;
+        objectiveText.GetComponent<CanvasGroup>().alpha = 1;
+
         for (int m = 0; m < GameObject.FindGameObjectsWithTag("Tutorial").Length; m++)
         {
             objects.Add(GameObject.FindGameObjectsWithTag("Tutorial")[0]);
@@ -155,6 +159,7 @@ public class UIManager : MonoBehaviour
         }
 
         Instantiate(tutorialObjects[tutNum]);
+        objectiveText.text = objectives[tutNum];
     }
 
     #endregion
