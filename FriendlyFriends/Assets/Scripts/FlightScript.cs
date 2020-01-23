@@ -78,6 +78,19 @@ public class FlightScript : MonoBehaviour {
                 StartCoroutine(hitBorder());
                 return;
             }
+
+            if (t.parent.tag == "Fan")
+            {
+                CeilingFan f = t.parent.GetComponent<CeilingFan>();
+                if (f.IsSpinning())
+                {
+                    var force = transform.position - collision.transform.position;
+                    force.Normalize();
+                    GetComponent<Rigidbody>().AddForce(-force * 1000, ForceMode.Impulse);
+                }
+                
+                return;
+            }
             t = t.parent.transform;
         }
         //print(t.name);

@@ -9,6 +9,7 @@ TagManager:
   - PauseCanvas
   - Tutorial
   - end
+  - Fan
   layers:
   - Default
   - TransparentFX
