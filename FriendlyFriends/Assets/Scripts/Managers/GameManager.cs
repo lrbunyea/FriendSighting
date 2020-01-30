@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour {
         if (objectiveNum < objectiveList.Length)
         {
             objectiveNum++;
+            objectiveList[objectiveNum].GetComponent<ObjectiveScript>().SetObjectiveActive(true);
         } 
     }
 

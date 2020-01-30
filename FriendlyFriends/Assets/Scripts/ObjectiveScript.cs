@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectiveScript : MonoBehaviour
 {
+    bool active = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,14 @@ public class ObjectiveScript : MonoBehaviour
         
     }
 
+    public void SetObjectiveActive(bool act)
+    {
+        active = act;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject))
+        if (GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject) && active)
         {
             if (this.gameObject.tag == "end")
             {
