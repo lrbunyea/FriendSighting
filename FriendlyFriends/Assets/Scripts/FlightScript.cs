@@ -14,6 +14,10 @@ public class FlightScript : MonoBehaviour {
     public float chargeStrength = 0.0f;
     public float chargeMult = 10.0f;
 
+    public bool flyingFurniture = false;
+    public float fanStrength = 1000f;
+    public float furnitureStrength = 100f;
+
     public float cameraSpot = 0;
 
     public CanvasGroup loanVignette;
@@ -63,22 +67,33 @@ public class FlightScript : MonoBehaviour {
         Transform t = collision.gameObject.transform;
         while (t.parent != null)
         {
+            //Obstacle Collision
             if (t.parent.tag == "Obstacle")
             {
-                //print("Obstacle Hit");
-                //collision.relativeVelocity.magnitude
                 ScoreManager.Instance.PlayerCollision(collision.relativeVelocity.magnitude);
                 if (hitCooldown == 0)
                 {
                     hitCooldown = 25;
                     aud.PlayOneShot(crashes[rand.Next(crashes.Length)]);
                 }
+
+                if (flyingFurniture)
+                {
+                    t = collision.gameObject.transform;
+                    Rigidbody r = t.GetComponent<Rigidbody>();
+                    var force = transform.position - t.position;
+                    force.Normalize();
+                    r.AddForce(-force * furnitureStrength, ForceMode.Impulse);
+                }
+
+
                 StopCoroutine(hitBorder());
                 ohNoMoney.Stop();
                 StartCoroutine(hitBorder());
                 return;
             }
 
+            //Fan Collision
             if (t.parent.tag == "Fan")
             {
                 CeilingFan f = t.parent.GetComponent<CeilingFan>();
@@ -86,7 +101,8 @@ public class FlightScript : MonoBehaviour {
                 {
                     var force = transform.position - collision.transform.position;
                     force.Normalize();
-                    GetComponent<Rigidbody>().AddForce(-force * 1000, ForceMode.Impulse);
+                    
+                    GetComponent<Rigidbody>().AddForce(force * fanStrength, ForceMode.Impulse);
                 }
                 
                 return;
