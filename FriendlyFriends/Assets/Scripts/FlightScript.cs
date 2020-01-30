@@ -101,6 +101,11 @@ public class FlightScript : MonoBehaviour {
                 {
                     var force = transform.position - collision.transform.position;
                     force.Normalize();
+                    force.y = -.1f;
+                    float tempx = force.x;
+                    float tempz = force.z;
+                    force.x = tempz;
+                    force.z = tempx;
                     
                     GetComponent<Rigidbody>().AddForce(force * fanStrength, ForceMode.Impulse);
                 }
