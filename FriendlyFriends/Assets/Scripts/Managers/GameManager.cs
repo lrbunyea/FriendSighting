@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour {
         {
             SetGameStateToGameplay();
             //UIManager.Instance.PlayTutorial1();
+            for (int i = 1; i < objectiveList.Length; i++)
+                objectiveList[i].SetActive(false);
             UpdateObjective();
         }
 
@@ -142,7 +144,7 @@ public class GameManager : MonoBehaviour {
         if (objectiveNum < objectiveList.Length)
         {
             objectiveNum++;
-            objectiveList[objectiveNum].GetComponent<ObjectiveScript>().SetObjectiveActive(true);
+            objectiveList[objectiveNum].SetActive(true);
         } 
     }
 
