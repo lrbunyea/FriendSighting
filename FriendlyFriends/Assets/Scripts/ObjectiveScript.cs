@@ -26,11 +26,19 @@ public class ObjectiveScript : MonoBehaviour
             {
                 ScoreManager.Instance.EndScore();
                 Destroy(this.gameObject.GetComponent<Collider>());
+                if (transform.Find("ObjectiveParticles") != null)
+                {
+                    transform.Find("ObjectiveParticles").gameObject.SetActive(false);
+                }
             }
             else if (other.tag == "Player")
             {
                 GameManager.Instance.UpdateObjective();
                 Destroy(this.gameObject.GetComponent<Collider>());
+                if (transform.Find("ObjectiveParticles") != null)
+                {
+                    transform.Find("ObjectiveParticles").gameObject.SetActive(false);
+                }
             }
 
             

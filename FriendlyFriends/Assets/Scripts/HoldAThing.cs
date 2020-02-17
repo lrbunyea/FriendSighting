@@ -21,11 +21,14 @@ public class HoldAThing : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        this.gameObject.GetComponent<Renderer>().enabled = false;
-        theHeldObject.SetActive(true);
-        GameManager.Instance.UpdateObjective();
-        Destroy(this.gameObject.GetComponent<Collider>());
-        StartCoroutine(getThatItem());
+        if (GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject))
+        {
+            this.gameObject.GetComponent<Renderer>().enabled = false;
+            theHeldObject.SetActive(true);
+            GameManager.Instance.UpdateObjective();
+            Destroy(this.gameObject.GetComponent<Collider>());
+            StartCoroutine(getThatItem());
+        }
         
     }
 
