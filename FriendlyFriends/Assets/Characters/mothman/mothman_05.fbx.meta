@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 483de87a92c3fcb4c97338f3316f35e0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: head
+    100002: hipJoint
+    100004: leftantenna01
+    100006: leftantenna02
+    100008: leftantenna03
+    100010: leftantenna04
+    100012: leftantenna05
+    100014: leftantenna06
+    100016: leftantennabase
+    100018: leftbottomwing02
+    100020: leftbottomwing1
+    100022: leftclavicle
+    100024: leftelbow
+    100026: lefthand
+    100028: leftLegHeel
+    100030: leftlegtoe
+    100032: leftLegToeRoll
+    100034: leftLegTop
+    100036: leftLegTopBoot
+    100038: leftottomwing03
+    100040: leftshoulder
+    100042: leftwingtop02
+    100044: leftwingtop03
+    100046: leftwingtop1
+    100048: leftwrist
+    100050: mothman
+    100052: //RootNode
+    100054: neck
+    100056: proboscis01
+    100058: proboscis02
+    100060: proboscis03
+    100062: proboscis04
+    100064: proboscis_base
+    100066: rightantenna01
+    100068: rightantenna02
+    100070: rightantenna03
+    100072: rightantenna04
+    100074: rightantenna05
+    100076: rightantenna06
+    100078: rightantennabase
+    100080: rightbottomwing02
+    100082: rightbottomwing03
+    100084: rightbottomwing1
+    100086: rightclavicle
+    100088: rightelbow
+    100090: righthand
+    100092: rightLegHeel
+    100094: rightlegtoe
+    100096: rightLegToeRoll
+    100098: rightLegTop
+    100100: rightLegTopBoot
+    100102: rightshoulder
+    100104: rightwingtop02
+    100106: rightwingtop03
+    100108: rightwingtop1
+    100110: rightwrist
+    100112: shoulderbase
+    100114: spine
+    100116: wingbase
+    400000: head
+    400002: hipJoint
+    400004: leftantenna01
+    400006: leftantenna02
+    400008: leftantenna03
+    400010: leftantenna04
+    400012: leftantenna05
+    400014: leftantenna06
+    400016: leftantennabase
+    400018: leftbottomwing02
+    400020: leftbottomwing1
+    400022: leftclavicle
+    400024: leftelbow
+    400026: lefthand
+    400028: leftLegHeel
+    400030: leftlegtoe
+    400032: leftLegToeRoll
+    400034: leftLegTop
+    400036: leftLegTopBoot
+    400038: leftottomwing03
+    400040: leftshoulder
+    400042: leftwingtop02
+    400044: leftwingtop03
+    400046: leftwingtop1
+    400048: leftwrist
+    400050: mothman
+    400052: //RootNode
+    400054: neck
+    400056: proboscis01
+    400058: proboscis02
+    400060: proboscis03
+    400062: proboscis04
+    400064: proboscis_base
+    400066: rightantenna01
+    400068: rightantenna02
+    400070: rightantenna03
+    400072: rightantenna04
+    400074: rightantenna05
+    400076: rightantenna06
+    400078: rightantennabase
+    400080: rightbottomwing02
+    400082: rightbottomwing03
+    400084: rightbottomwing1
+    400086: rightclavicle
+    400088: rightelbow
+    400090: righthand
+    400092: rightLegHeel
+    400094: rightlegtoe
+    400096: rightLegToeRoll
+    400098: rightLegTop
+    400100: rightLegTopBoot
+    400102: rightshoulder
+    400104: rightwingtop02
+    400106: rightwingtop03
+    400108: rightwingtop1
+    400110: rightwrist
+    400112: shoulderbase
+    400114: spine
+    400116: wingbase
+    2100000: wings
+    2100002: lambert1
+    4300000: mothman
+    9500000: //RootNode
+    13700000: mothman
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 2b655829acbdc124ea33702a5db33441, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wings
+    second: {fileID: 2100000, guid: 4512d85db528d354f8f2fed3cc4e4306, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 10
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

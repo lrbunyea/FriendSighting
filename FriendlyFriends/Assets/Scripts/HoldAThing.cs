@@ -21,7 +21,7 @@ public class HoldAThing : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject))
+        if (GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject) && other.tag == "Player")
         {
             this.gameObject.GetComponent<Renderer>().enabled = false;
             theHeldObject.SetActive(true);

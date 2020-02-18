@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831bb454de633844a87d258d4f651e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theTextPrefab: {fileID: 1206833398646344, guid: 091647e7badd2cd49981e4871d12aa23,
+  theTextPrefab: {fileID: 1206833398646344, guid: 87c6f3e4b1b449140b5ac4f5bc803909,
     type: 3}
   theTextBox: {fileID: 1763273792999222565}
   theCanvas: {fileID: 259831429913499962}
