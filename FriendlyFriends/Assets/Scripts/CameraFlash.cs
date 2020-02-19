@@ -34,7 +34,7 @@ public class CameraFlash : MonoBehaviour
 
         while (theFlash.GetComponent<CanvasGroup>().alpha < 1)
         {
-            theFlash.GetComponent<CanvasGroup>().alpha += .1f;
+            theFlash.GetComponent<CanvasGroup>().alpha += .2f;
             theFlash.transform.localScale += new Vector3(.3f, .3f, .3f);
             yield return new WaitForSeconds(.005f);
         }

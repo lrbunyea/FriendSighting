@@ -39,7 +39,7 @@ public class ScoreManager : MonoBehaviour
     {
         UpdateTime();
         UpdateCollisions();
-        UpdateCharge();
+        //UpdateCharge();
         TurnOnOffCanvasGroup(regScore, true);
         TurnOnOffCanvasGroup(endLevel, false);
     }

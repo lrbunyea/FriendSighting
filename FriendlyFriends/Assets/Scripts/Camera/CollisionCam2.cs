@@ -70,7 +70,7 @@ public class CollisionCam2 : MonoBehaviour
 
     void smoothCamMethod()
     {
-        smooth = 4f;
+        smooth = 4;
         transform.position = Vector3.Lerp(transform.position, camPos, Time.deltaTime * smooth);
     }
 
@@ -79,7 +79,7 @@ public class CollisionCam2 : MonoBehaviour
         RaycastHit wallHit = new RaycastHit();
         if (Physics.Linecast(targetFollow, camMask, out wallHit, Occlusion))
         {
-            smooth = 10f;
+            smooth = 4;
             camPos = new Vector3(wallHit.point.x + wallHit.normal.x * 0.5f, camPos.y, wallHit.point.z + wallHit.normal.z * 0.5f);
         }
     }
