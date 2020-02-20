@@ -10,6 +10,7 @@ TagManager:
   - Tutorial
   - end
   - Fan
+  - wall
   layers:
   - Default
   - TransparentFX
