@@ -18,11 +18,12 @@ public class CeilingFan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.F))
         {
             spinning = !spinning;
         }
-
+        */
         if (spinning)
         {
             if (rotateRate < rotateMax)
@@ -46,5 +47,10 @@ public class CeilingFan : MonoBehaviour
     public bool IsSpinning()
     {
         return spinning;
+    }
+
+    public void SetSpinning(bool spin)
+    {
+        spinning = spin;
     }
 }

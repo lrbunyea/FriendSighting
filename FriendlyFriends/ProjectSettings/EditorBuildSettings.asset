@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Bigfoot Caf Level.unity
+    guid: 0dca8dcc666352344a8041f5bea21fc5
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c67373bcc79b3b64386edd5e622fc885
   - enabled: 1
@@ -17,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Letter.unity
     guid: 62b548c85e4073f42ad80ab04764c2bc
-  - enabled: 1
-    path: Assets/Scenes/Bigfoot Caf Level.unity
-    guid: 0dca8dcc666352344a8041f5bea21fc5
   m_configObjects: {}

@@ -16,7 +16,7 @@ public class FlightScript : MonoBehaviour {
 
     public bool flyingFurniture = false;
     public float fanStrength = 1000f;
-    public float furnitureStrength = 100f;
+    public float furnitureStrength = 1f;
 
     public float cameraSpot = 0;
 
@@ -83,7 +83,7 @@ public class FlightScript : MonoBehaviour {
                     Rigidbody r = t.GetComponent<Rigidbody>();
                     var force = transform.position - t.position;
                     force.Normalize();
-                    r.AddForce(-force * furnitureStrength, ForceMode.Impulse);
+                    r.AddForce(-force * collision.relativeVelocity.magnitude * furnitureStrength, ForceMode.Impulse);
                 }
 
 
