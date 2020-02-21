@@ -48,7 +48,7 @@ public class ScoreManager : MonoBehaviour
         amountOfMinutes = 1;
         amountOfSeconds = 30;
         enableTime(false);
-        timeText.GetComponent<CanvasGroup>().alpha = 0;
+        //timeText.GetComponent<CanvasGroup>().alpha = 0;
     }
     // Start is called before the first frame update
     void Start()
@@ -96,7 +96,7 @@ public class ScoreManager : MonoBehaviour
     public void enableTime(bool on)
     {
         timing = on;
-        timeText.GetComponent<CanvasGroup>().alpha = 1;
+        //timeText.GetComponent<CanvasGroup>().alpha = 1;
     }
 
     public void PlayerCollision(float magnitude)

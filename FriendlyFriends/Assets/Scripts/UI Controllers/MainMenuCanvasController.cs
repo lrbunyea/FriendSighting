@@ -13,7 +13,8 @@ public class MainMenuCanvasController : MonoBehaviour
         fadeToLevel,
         fadetoMain
     }
-
+    [SerializeField] GameObject l;
+    [SerializeField] GameObject t;
     private float alphaT = 1;
     private float alphaL = 0;
     private CanvasGroup levelSelect;
@@ -25,8 +26,8 @@ public class MainMenuCanvasController : MonoBehaviour
     #region Unity API Functions
     void Start()
     {
-        Transform l = transform.Find("LevelSelect");
-        Transform t = transform.Find("Main");
+        //Transform l = transform.Find("LevelSelect");
+        //Transform t = transform.Find("Main");
         levelSelect = l.GetComponent<CanvasGroup>();
         title = t.GetComponent<CanvasGroup>();
         levels = l.GetComponentsInChildren<Button>();
@@ -36,6 +37,8 @@ public class MainMenuCanvasController : MonoBehaviour
         {
             b.interactable = false;
         }
+
+        print(SceneManager.sceneCount);
     }
     
     void Update()
@@ -54,9 +57,10 @@ public class MainMenuCanvasController : MonoBehaviour
 
         if (state == MenuState.fadeToLevel)
         {
-            print("Fading to level");
+            print("Fading to Level Select: Alpha = " + alphaT + " and " + alphaL);
             if (alphaT > 0)
             {
+                print("Inside Loop");
                 alphaT -= Time.deltaTime * 2.0f;
                 if (alphaT < 0)
                 {
@@ -115,9 +119,9 @@ public class MainMenuCanvasController : MonoBehaviour
 
     public void Fade()
     {
-        print("Fade Started");
         if (state == MenuState.title)
         {
+            print("Going to LevelSelect");
             state = MenuState.fadeToLevel;
             start.interactable = false;
         }
