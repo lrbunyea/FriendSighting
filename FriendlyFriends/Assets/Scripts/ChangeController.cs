@@ -75,6 +75,15 @@ public class ChangeController : MonoBehaviour {
     }
     #endregion
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            getThatJar();
+            GameManager.Instance.holdingChange = true;
+        }
+    }
+
     public void DeleteOnEvent()
     {
         GameManager.Instance.SetChangeHolding(false);

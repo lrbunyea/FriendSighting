@@ -6,7 +6,7 @@ public class Tut1TriggerController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        UIManager.Instance.PlayTutorial2();
+        //UIManager.Instance.PlayTutorial2();
         Destroy(this.gameObject);
     }
 }
