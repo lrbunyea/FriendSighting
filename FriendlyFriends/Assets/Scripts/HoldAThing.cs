@@ -2,16 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HoldAThing : MonoBehaviour
 {
     public GameObject theHeldObject;
     public Image itemGet;
+    private bool finalRound;
     public int objectiveNum = 0;
     // Start is called before the first frame update
     void Start()
     {
         theHeldObject.SetActive(false);
+        if (SceneManager.GetActiveScene().name == "Final Round")
+        {
+            finalRound = true;
+        }
+        else
+        {
+            finalRound = true;
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +40,10 @@ public class HoldAThing : MonoBehaviour
             GameManager.Instance.UpdateObjective();
             Destroy(this.gameObject.GetComponent<Collider>());
             StartCoroutine(getThatItem());
+            if (finalRound)
+            {
+                ScoreManager.Instance.enableTime(true);
+            }
         }
         
     }
