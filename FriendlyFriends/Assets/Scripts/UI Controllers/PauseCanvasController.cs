@@ -24,8 +24,9 @@ public class PauseCanvasController : MonoBehaviour
     #region UI Element Functions
     public void ReturnToMainMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
-        GameManager.Instance.SetGameStateToMainMenu();
+        //GameManager.Instance.SetGameStateToMainMenu();
     }
     #endregion
 

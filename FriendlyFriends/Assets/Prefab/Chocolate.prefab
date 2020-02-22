@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 971877486}
   - component: {fileID: 971877488}
   - component: {fileID: 971877487}
+  - component: {fileID: 4369567296417448871}
+  - component: {fileID: 1908326629978666062}
+  - component: {fileID: 1160679316915896494}
   m_Layer: 0
   m_Name: candy_obj
   m_TagString: Untagged
@@ -77,6 +80,48 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4369567296417448871
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971877485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.646286, y: 4.0637836, z: 7.655327}
+  m_Center: {x: -0.21904755, y: 0.82280445, z: 1.137085}
+--- !u!114 &1908326629978666062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971877485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9724ec013acb4cf4cb0cbed3aeaf794d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickup: {fileID: 8300000, guid: 0c37ac9f621a43441aa93fc4e409b371, type: 3}
+  putdown: {fileID: 8300000, guid: 1541fc83dd8fb1a4888decfefe88d56c, type: 3}
+--- !u!114 &1160679316915896494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971877485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242e750541cf70a4da5425a64dbfef34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theHeldObject: {fileID: 0}
+  itemGet: {fileID: 0}
+  objectiveNum: 0
 --- !u!1 &2141943925
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +136,7 @@ GameObject:
   - component: {fileID: 2141943928}
   - component: {fileID: 2141943926}
   - component: {fileID: 7918795346056577514}
+  - component: {fileID: 1805044847777061046}
   m_Layer: 0
   m_Name: Chocolate
   m_TagString: Untagged
@@ -138,7 +184,7 @@ BoxCollider:
   m_GameObject: {fileID: 2141943925}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 8.646286, y: 4.0637836, z: 7.655327}
   m_Center: {x: -0.21904755, y: 0.82280445, z: 1.137085}
@@ -162,7 +208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141943925}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9724ec013acb4cf4cb0cbed3aeaf794d, type: 3}
   m_Name: 
@@ -265,3 +311,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1805044847777061046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141943925}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242e750541cf70a4da5425a64dbfef34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theHeldObject: {fileID: 0}
+  itemGet: {fileID: 0}
+  objectiveNum: 0

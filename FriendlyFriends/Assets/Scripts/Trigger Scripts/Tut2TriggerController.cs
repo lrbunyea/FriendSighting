@@ -24,17 +24,17 @@ public class Tut2TriggerController : MonoBehaviour
     { 
         if (!hasPlayedTut3)
         {
-            UIManager.Instance.PlayTutorial3();
+            //UIManager.Instance.PlayTutorial3();
             hasPlayedTut3 = true;
         }
 
         if (hasPlayedTut3 && !hasPlayedTut4 && GameManager.Instance.holdingChange)
         {
-            UIManager.Instance.PlayTutorial4();
+            //UIManager.Instance.PlayTutorial4();
             hasPlayedTut4 = true;
         } else if (hasPlayedTut3 && hasPlayedTut4 && !hasPlayedTut5 && GameManager.Instance.holdingChocolate)
         {
-            UIManager.Instance.PlayTutorial5();
+            //UIManager.Instance.PlayTutorial5();
             Destroy(this.gameObject);
         }
         

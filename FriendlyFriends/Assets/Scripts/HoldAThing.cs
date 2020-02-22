@@ -9,6 +9,7 @@ public class HoldAThing : MonoBehaviour
     public GameObject theHeldObject;
     public Image itemGet;
     private bool finalRound;
+    public int objectiveNum = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +32,11 @@ public class HoldAThing : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject) && other.tag == "Player")
+        if ((GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject) || objectiveNum == GameManager.Instance.GetCurObjectiveNum()) && other.tag == "Player")
         {
             this.gameObject.GetComponent<Renderer>().enabled = false;
             theHeldObject.SetActive(true);
+            theHeldObject.GetComponent<Renderer>().enabled = true;
             GameManager.Instance.UpdateObjective();
             Destroy(this.gameObject.GetComponent<Collider>());
             StartCoroutine(getThatItem());

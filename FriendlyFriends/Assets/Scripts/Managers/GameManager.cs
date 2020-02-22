@@ -152,5 +152,10 @@ public class GameManager : MonoBehaviour {
     {
         return objectiveList[objectiveNum];
     }
+
+    public int GetCurObjectiveNum()
+    {
+        return objectiveNum;
+    }
     #endregion
 }

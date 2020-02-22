@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ChocolateController : MonoBehaviour
 {
     #region Variables
@@ -14,15 +14,25 @@ public class ChocolateController : MonoBehaviour
     public AudioClip putdown;
 
     #region Unity API Functions
+
+    void Awake()
+    {
+        HoldAThing hold = GetComponent<HoldAThing>();
+        hold.itemGet = GameObject.Find("Candy Get").GetComponent<Image>();
+        hold.theHeldObject = GameObject.FindWithTag("Candy").gameObject;
+        hold.objectiveNum = 4;
+    }
     private void Start()
     {
         pressedKey = false;
         //beingHeld = false;
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInParent<Rigidbody>();
         GameManager.Instance.DeleteObjective.AddListener(DeleteOnEvent);
 
         rb.AddForce(new Vector3(1, 0, 0)*1000, ForceMode.Acceleration);
-        aud = GetComponent<AudioSource>();
+        //aud = GetComponent<AudioSource>();
+
+
     }
 
     private void Update()
@@ -58,6 +68,7 @@ public class ChocolateController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        /*
         //Debug.Log("Trigger entered!");
         if (pressedKey && other.gameObject.tag == "Player")
         {
@@ -71,6 +82,7 @@ public class ChocolateController : MonoBehaviour
             pressedKey = false;
             aud.PlayOneShot(pickup);
         }
+        */
     }
     #endregion
 
