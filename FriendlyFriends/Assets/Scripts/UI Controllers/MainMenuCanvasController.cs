@@ -38,29 +38,29 @@ public class MainMenuCanvasController : MonoBehaviour
             b.interactable = false;
         }
 
-        print(SceneManager.sceneCount);
+        print(Input.GetJoystickNames()[0].Length + " joysticks");
     }
     
     void Update()
     {
+        
         if (Input.GetKeyDown("joystick button 0"))
             {
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
-                SceneManager.LoadScene("Letter");
+                if (state == MenuState.title)
+                    Fade();
             }
             else if (SceneManager.GetActiveScene().name == "Letter")
             {
                 SceneManager.LoadScene("Bigfoot Caf Level");
             }
         }
-
+        
         if (state == MenuState.fadeToLevel)
         {
-            print("Fading to Level Select: Alpha = " + alphaT + " and " + alphaL);
             if (alphaT > 0)
             {
-                print("Inside Loop");
                 alphaT -= Time.deltaTime * 2.0f;
                 if (alphaT < 0)
                 {
@@ -79,6 +79,7 @@ public class MainMenuCanvasController : MonoBehaviour
                     {
                         b.interactable = true;
                     }
+                    levels[0].Select();
                 }
                 levelSelect.alpha = alphaL;
             }
@@ -121,7 +122,6 @@ public class MainMenuCanvasController : MonoBehaviour
     {
         if (state == MenuState.title)
         {
-            print("Going to LevelSelect");
             state = MenuState.fadeToLevel;
             start.interactable = false;
         }

@@ -1,1 +1,4 @@
-nessie::Steam Tunnel Objective 2 text
+nessie::All right, so a bit of a good news / bad news situation
+nessie::Good news is that the fans have cleared a gap in the steam you should be able to fly through
+nessie::Bad news is that you'll have to fly pretty close to those fans to make it through
+nessie::So uh... don't get whacked?

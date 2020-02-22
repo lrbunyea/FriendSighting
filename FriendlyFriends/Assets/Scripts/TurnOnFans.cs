@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurnOnFans : MonoBehaviour
 {
     public CeilingFan[] fans;
-
+    public ParticleSystem part;
 
 
     void OnTriggerEnter(Collider other)
@@ -19,7 +19,10 @@ public class TurnOnFans : MonoBehaviour
             }
             //Get rid of the steam wall blocking further progress
             if (transform.childCount > 0)
+            {
                 Destroy(transform.GetChild(0).gameObject);
+                part.Stop();
+            }
         }
 
     }

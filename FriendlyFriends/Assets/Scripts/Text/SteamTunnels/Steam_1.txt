@@ -1,1 +1,5 @@
-nessie::Steam Tunnel Objective 1 text
+nessie::All right moth lad, here's the plan
+nessie::At the far end of these steam tunnels, there's a panel that controls the school's cameras
+nessie::We're gonna want to temporarily knock out the cameras in the cafeteria for our heist
+nessie::You'll have to turn on the fans to make it past these steam walls
+nessie::The first set of fan controls should be ahead on your left

@@ -1,1 +1,3 @@
-nessie::Steam Tunnel Objective 4 text
+nessie::Solid. The camera controls should be up ahead
+nessie::Be careful though...
+nessie::It looks like it'll be a really tight squeeze past these last fans
