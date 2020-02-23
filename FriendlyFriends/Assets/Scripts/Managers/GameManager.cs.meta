@@ -3,7 +3,9 @@ guid: 6b97b0e949695f14b9157513e8d1a2fb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - chocolatePrefab: {fileID: 2141943925, guid: 745257833772a524caea9fab04d9f6f1,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
