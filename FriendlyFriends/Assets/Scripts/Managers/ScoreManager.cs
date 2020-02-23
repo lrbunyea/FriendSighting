@@ -63,7 +63,7 @@ public class ScoreManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (timing) frames++;
+        if (timing  && propertyDamageorLoans == "Property Damage: $") frames++;
         if (frames == 50)
         {
             frames = 0;
