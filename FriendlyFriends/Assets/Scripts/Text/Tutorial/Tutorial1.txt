@@ -1,3 +1,4 @@
 nessie::Hey, dude! What are you doing on the ground?
 nessie::Why don't you try flying upwards?
 nessie::Alternate pressing RB and LB to flap your wings!
+nessie::Or, if you're on PC, try the left and right arrow keys.
