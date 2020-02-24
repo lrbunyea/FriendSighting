@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,48 +9,73 @@ public class MainMenuCanvasController : MonoBehaviour
 {
     enum MenuState
     {
-        title,
-        levelSelect,
+        title = 0,
+        levelSelect = 1,
+        options = 2,
+        fade,
         fadeToLevel,
         fadetoMain
     }
     [SerializeField] GameObject l;
     [SerializeField] GameObject t;
-    private float alphaT = 1;
-    private float alphaL = 0;
+    [SerializeField] GameObject o;
+    [SerializeField] UnityEngine.EventSystems.EventSystem ev;
     private CanvasGroup levelSelect;
-    private CanvasGroup title;
-    private Button[] levels;
-    private Button start;
+    private CanvasGroup titleScreen;
+    private CanvasGroup optionMenu;
+    private CanvasGroup[] screens;
+    private Button[] levelButtons;
+    private Button[] mainButtons;
+    private Button[] optionButtons;
+    private Slider[] optionSliders;
+    private int fadingTo = -1;
+    private int fadingFrom = -1;
+    private float alphaTo = 0;
+    private float alphaFrom = 1;
+    
     private MenuState state = MenuState.title;
 
     #region Unity API Functions
     void Start()
     {
-        //Transform l = transform.Find("LevelSelect");
-        //Transform t = transform.Find("Main");
         levelSelect = l.GetComponent<CanvasGroup>();
-        title = t.GetComponent<CanvasGroup>();
-        levels = l.GetComponentsInChildren<Button>();
-        start = t.GetComponentInChildren<Button>();
+        titleScreen = t.GetComponent<CanvasGroup>();
+        optionMenu = o.GetComponent<CanvasGroup>();
+        levelButtons = l.GetComponentsInChildren<Button>();
+        mainButtons = t.GetComponentsInChildren<Button>();
+        optionButtons = o.GetComponentsInChildren<Button>();
+        optionSliders = o.GetComponentsInChildren<Slider>();
+        screens = new CanvasGroup[3];
+        screens[0] = titleScreen;
+        screens[1] = levelSelect;
+        screens[2] = optionMenu;
 
-        foreach(Button b in levels)
+        foreach(Button b in levelButtons)
         {
             b.interactable = false;
         }
-
-        print(Input.GetJoystickNames()[0].Length + " joysticks");
+        foreach(Button b in optionButtons)
+        {
+            b.interactable = false;
+        }
+        
     }
     
     void Update()
     {
-        
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            if (ev.currentSelectedGameObject == null)
+            {
+                SelectDefaultButton();
+            }
+        }
         if (Input.GetKeyDown("joystick button 0"))
             {
             if (SceneManager.GetActiveScene().name == "MainMenu")
             {
                 if (state == MenuState.title)
-                    Fade();
+                    FadeTo(1);
             }
             else if (SceneManager.GetActiveScene().name == "Letter")
             {
@@ -57,54 +83,27 @@ public class MainMenuCanvasController : MonoBehaviour
             }
         }
         
-        if (state == MenuState.fadeToLevel)
+        if (state == MenuState.fade)
         {
-            if (alphaT > 0)
+            if (alphaFrom > 0)
             {
-                alphaT -= Time.deltaTime * 2.0f;
-                if (alphaT < 0)
+                alphaFrom -= Time.deltaTime * 2.0f;
+                if (alphaFrom < 0)
                 {
-                    alphaT = 0;
+                    alphaFrom = 0;
                 }
-                title.alpha = alphaT;
+                screens[fadingFrom].alpha = alphaFrom;
             }
             else
             {
-                alphaL += Time.deltaTime * 2.0f;
-                if (alphaL > 1)
+                alphaTo += Time.deltaTime * 2.0f;
+                if (alphaTo > 1)
                 {
-                    alphaL = 1;
-                    state = MenuState.levelSelect;
-                    foreach (Button b in levels)
-                    {
-                        b.interactable = true;
-                    }
-                    levels[0].Select();
+                    alphaTo = 1.0f;
+                    state = (MenuState)fadingTo;
+                    InteractButtons(true);
                 }
-                levelSelect.alpha = alphaL;
-            }
-        }
-        if (state == MenuState.fadetoMain)
-        {
-            if (alphaL > 0)
-            {
-                alphaL -= Time.deltaTime * 2.0f;
-                if (alphaL < 0)
-                {
-                    alphaL = 0;
-                }
-                levelSelect.alpha = alphaL;
-            }
-            else
-            {
-                alphaT += Time.deltaTime * 2.0f;
-                if (alphaT > 1)
-                {
-                    alphaT = 1;
-                    state = MenuState.title;
-                    start.interactable = true;
-                }
-                title.alpha = alphaT;
+                screens[fadingTo].alpha = alphaTo;
             }
         }
     }
@@ -117,22 +116,75 @@ public class MainMenuCanvasController : MonoBehaviour
         //GameManager.Instance.SetGameStateToGameplay();
         //UIManager.Instance.PlayTutorial1();
     }
+    
+    public void FadeTo(int i)
+    {
+        if (state != MenuState.fade)
+        {
+            alphaTo = 0;
+            alphaFrom = 1.0f;
+            fadingTo = i;
+            fadingFrom = (int)state;
+            InteractButtons(false);
 
-    public void Fade()
+            state = MenuState.fade;
+
+        }
+    }
+
+
+    public void AdjustSound(float val)
+    {
+        print("Sound at " + val);
+    }
+
+    public void AdjustMusic(float val)
+    {
+        print("Music at " + val);
+    }
+    #endregion
+
+    #region Helper Functions
+    private void InteractButtons(bool interactive)
+    {
+        Button[] tempButtons = new Button[0];
+        if (state == MenuState.title)
+        {
+            tempButtons = mainButtons;
+        }
+        else if (state == MenuState.levelSelect)
+        {
+            tempButtons = levelButtons;
+        }
+        else if (state == MenuState.options)
+        {
+            tempButtons = optionButtons;
+            foreach(Slider s in optionSliders)
+            {
+                s.interactable = interactive;
+            }
+        }
+        foreach (Button b in tempButtons)
+        {
+            b.interactable = interactive;
+        }
+    }
+
+    private void SelectDefaultButton()
     {
         if (state == MenuState.title)
         {
-            state = MenuState.fadeToLevel;
-            start.interactable = false;
+            mainButtons[0].Select();
         }
-        if (state == MenuState.levelSelect)
+        else if (state == MenuState.levelSelect)
         {
-            state = MenuState.fadetoMain;
-            foreach (Button b in levels)
-            {
-                b.interactable = false;
-            }
+            levelButtons[0].Select();
+        }
+        else if (state == MenuState.options)
+        {
+            optionSliders[0].Select();
         }
     }
+
     #endregion
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MenuButton : MonoBehaviour, ISelectHandler
+public class MenuButton : MonoBehaviour, IPointerEnterHandler
 {
     Button b;
     // Start is called before the first frame update
@@ -13,25 +13,10 @@ public class MenuButton : MonoBehaviour, ISelectHandler
         b = GetComponent<Button>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        b.Select();
-        print(transform.name);
-    }
-
-    public void OnSelect(BaseEventData eventData)
-    {
-        print(transform.name);
-    }
-
-    void ISelectHandler.OnSelect(BaseEventData eventData)
-    {
-        print(transform.name + " was selected");
+        if (b.interactable)
+            b.Select();
     }
 }
