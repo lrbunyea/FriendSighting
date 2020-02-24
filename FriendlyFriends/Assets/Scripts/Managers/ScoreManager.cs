@@ -125,10 +125,8 @@ public class ScoreManager : MonoBehaviour
     private void UpdateCollisions()
     {
         float p1 = (float)(numCollisions * 5);
-        //print("Collision Vals: " + p1 + " : " + (p1 + collSpeeds));
         p1 += collSpeeds;
         string value = propertyDamageorLoans + p1.ToString();
-        //print(value);
         if (SceneManager.GetActiveScene().name == "Final Round" && !timing)
         {
             p1 = 0;
@@ -155,6 +153,15 @@ public class ScoreManager : MonoBehaviour
 
         //finalTime.text = timeText.text;
         finalScore.text = collText.text;
+
+
+        float p1 = (float)(numCollisions * 5);
+        p1 += collSpeeds;
+        if (SceneManager.GetActiveScene().name == "Final Round" && !timing)
+        {
+            p1 = 0;
+        }
+        GameManager.Instance.EndLevel(p1);
 
     }
 

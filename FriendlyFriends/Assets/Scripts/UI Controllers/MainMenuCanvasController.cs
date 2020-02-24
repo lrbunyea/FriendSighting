@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainMenuCanvasController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MainMenuCanvasController : MonoBehaviour
     [SerializeField] GameObject t;
     [SerializeField] GameObject o;
     [SerializeField] UnityEngine.EventSystems.EventSystem ev;
+    [SerializeField] AudioMixer mixer;
     private CanvasGroup levelSelect;
     private CanvasGroup titleScreen;
     private CanvasGroup optionMenu;
@@ -32,12 +34,15 @@ public class MainMenuCanvasController : MonoBehaviour
     private int fadingFrom = -1;
     private float alphaTo = 0;
     private float alphaFrom = 1;
+    private SaveReader reader;
     
     private MenuState state = MenuState.title;
 
     #region Unity API Functions
     void Start()
     {
+        print(Application.persistentDataPath + "/save.dat");
+
         levelSelect = l.GetComponent<CanvasGroup>();
         titleScreen = t.GetComponent<CanvasGroup>();
         optionMenu = o.GetComponent<CanvasGroup>();
@@ -50,7 +55,18 @@ public class MainMenuCanvasController : MonoBehaviour
         screens[1] = levelSelect;
         screens[2] = optionMenu;
 
-        foreach(Button b in levelButtons)
+
+        float soundVal = 0;
+        mixer.GetFloat("SoundVolume", out soundVal);
+        float musicVal = 0;
+        mixer.GetFloat("MusicVolume", out musicVal);
+
+        optionSliders[0].value = ConvertDbToFloat(soundVal);
+        optionSliders[1].value = ConvertDbToFloat(musicVal);
+
+        reader = new SaveReader();
+
+        foreach (Button b in levelButtons)
         {
             b.interactable = false;
         }
@@ -58,7 +74,6 @@ public class MainMenuCanvasController : MonoBehaviour
         {
             b.interactable = false;
         }
-        
     }
     
     void Update()
@@ -70,6 +85,7 @@ public class MainMenuCanvasController : MonoBehaviour
                 SelectDefaultButton();
             }
         }
+        /*
         if (Input.GetKeyDown("joystick button 0"))
             {
             if (SceneManager.GetActiveScene().name == "MainMenu")
@@ -82,7 +98,7 @@ public class MainMenuCanvasController : MonoBehaviour
                 SceneManager.LoadScene("Bigfoot Caf Level");
             }
         }
-        
+        */
         if (state == MenuState.fade)
         {
             if (alphaFrom > 0)
@@ -135,12 +151,12 @@ public class MainMenuCanvasController : MonoBehaviour
 
     public void AdjustSound(float val)
     {
-        print("Sound at " + val);
+        mixer.SetFloat("SoundVolume", ConvertToDecibel(val));
     }
 
     public void AdjustMusic(float val)
     {
-        print("Music at " + val);
+        mixer.SetFloat("MusicVolume", ConvertToDecibel(val));
     }
     #endregion
 
@@ -168,6 +184,9 @@ public class MainMenuCanvasController : MonoBehaviour
         {
             b.interactable = interactive;
         }
+
+        if (state == MenuState.levelSelect)
+            SetUnlockedLevels();
     }
 
     private void SelectDefaultButton()
@@ -186,5 +205,25 @@ public class MainMenuCanvasController : MonoBehaviour
         }
     }
 
+    private void SetUnlockedLevels()
+    {
+        int unlocked = reader.s.GetUnlocked();
+        for (int i = 0; i < 5; i++)
+        {
+            if (i <= unlocked)
+                levelButtons[i].interactable = true;
+            else
+                levelButtons[i].interactable = false;
+        }
+    }
+
+    private float ConvertToDecibel(float value)
+    {
+        return Mathf.Log10(Mathf.Max(value, .0001f)) * 20f;
+    }
+    private float ConvertDbToFloat(float value)
+    {
+        return Mathf.Pow(10, (value / 20.0f));
+    }
     #endregion
 }

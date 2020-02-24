@@ -14,9 +14,12 @@ public class GameManager : MonoBehaviour {
     public bool holdingChange;
     public bool holdingChocolate;
     [SerializeField] GameObject chocolatePrefab;
+    [SerializeField] string nextLevel;
+    [SerializeField] int levelNum;
     public GameObject[] objectiveList;
     private int objectiveNum;
-
+    private float endTimer = 0f;
+    private SaveReader reader;
 
     public UnityEvent PauseGame;
     public UnityEvent DeleteObjective;
@@ -69,10 +72,19 @@ public class GameManager : MonoBehaviour {
         holdingChange = false;
 
         PauseGame.AddListener(PauseGameplay);
+        reader = new SaveReader();
+        print(reader.s.ToString());
     }
 
     void Update () {
-		
+		if (endTimer > 0)
+        {
+            endTimer -= Time.deltaTime;
+            if (endTimer < 1.0f)
+            {
+                SceneManager.LoadScene(nextLevel);
+            }
+        }
 	}
     #endregion
 
@@ -156,6 +168,20 @@ public class GameManager : MonoBehaviour {
     public int GetCurObjectiveNum()
     {
         return objectiveNum;
+    }
+
+    public void EndLevel(float score)
+    {
+        SaveData saved = new SaveData(reader.s.ToString());
+        if (saved.GetUnlocked() == levelNum)
+            saved.SetUnlocked(levelNum + 1);
+        if (saved.GetScore(levelNum) > score)
+        {
+            saved.SetScore(levelNum, score);
+        }
+        reader.SaveFile(saved);
+        
+        endTimer = 6.0f;
     }
     #endregion
 }
