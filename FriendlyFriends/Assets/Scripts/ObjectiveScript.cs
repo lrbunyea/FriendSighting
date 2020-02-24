@@ -22,7 +22,7 @@ public class ObjectiveScript : MonoBehaviour
     {
         if (GameObject.ReferenceEquals(GameManager.Instance.GetCurObjective(), this.gameObject))
         {
-            if (this.gameObject.tag == "end")
+            if (this.gameObject.tag == "end" && other.tag == "Player")
             {
                 ScoreManager.Instance.EndScore();
                 Destroy(this.gameObject.GetComponent<Collider>());
