@@ -12,6 +12,7 @@ TagManager:
   - Fan
   - Candy
   - wall
+  - Steam
   layers:
   - Default
   - TransparentFX

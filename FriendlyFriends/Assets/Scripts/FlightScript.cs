@@ -27,6 +27,7 @@ public class FlightScript : MonoBehaviour {
     AudioSource aud;
     public AudioClip[] flaps;
     public AudioClip[] crashes;
+    public AudioClip[] steams;
     int hitCooldown = 0;
     System.Random rand;
 
@@ -110,6 +111,16 @@ public class FlightScript : MonoBehaviour {
                     GetComponent<Rigidbody>().AddForce(force * fanStrength, ForceMode.Impulse);
                 }
                 
+                return;
+            }
+
+            if (t.parent.tag == "Steam")
+            {
+                if (hitCooldown == 0)
+                {
+                    hitCooldown = 25;
+                    aud.PlayOneShot(steams[rand.Next(steams.Length)]);
+                }
                 return;
             }
             t = t.parent.transform;
