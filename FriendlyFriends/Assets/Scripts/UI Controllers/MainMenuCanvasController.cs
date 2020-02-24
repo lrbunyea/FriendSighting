@@ -85,20 +85,7 @@ public class MainMenuCanvasController : MonoBehaviour
                 SelectDefaultButton();
             }
         }
-        /*
-        if (Input.GetKeyDown("joystick button 0"))
-            {
-            if (SceneManager.GetActiveScene().name == "MainMenu")
-            {
-                if (state == MenuState.title)
-                    FadeTo(1);
-            }
-            else if (SceneManager.GetActiveScene().name == "Letter")
-            {
-                SceneManager.LoadScene("Bigfoot Caf Level");
-            }
-        }
-        */
+
         if (state == MenuState.fade)
         {
             if (alphaFrom > 0)
@@ -142,7 +129,7 @@ public class MainMenuCanvasController : MonoBehaviour
             fadingTo = i;
             fadingFrom = (int)state;
             InteractButtons(false);
-
+            ev.SetSelectedGameObject(null);
             state = MenuState.fade;
 
         }
