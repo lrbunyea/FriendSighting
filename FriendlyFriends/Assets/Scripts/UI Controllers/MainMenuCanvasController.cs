@@ -158,6 +158,11 @@ public class MainMenuCanvasController : MonoBehaviour
     {
         mixer.SetFloat("MusicVolume", ConvertToDecibel(val));
     }
+
+    public void QuitTheBoi()
+    {
+        Application.Quit();
+    }
     #endregion
 
     #region Helper Functions
