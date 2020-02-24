@@ -17,7 +17,6 @@ public class TurnOnFans : MonoBehaviour
         auds[1].loop = true;
     }
 
-
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

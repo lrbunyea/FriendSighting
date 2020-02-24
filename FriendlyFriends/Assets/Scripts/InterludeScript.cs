@@ -11,7 +11,7 @@ public class InterludeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("joystick button 0") || Input.GetButtonDown("FlapUp") || Input.GetButtonDown("FlapDown"))
+        if (Input.GetKeyDown("joystick button 0") || Input.GetButtonDown("FlapUp") || Input.GetButtonDown("FlapDown") || Input.GetButtonDown("Pause"))
         {
             SceneManager.LoadScene(nextLevel);
         }

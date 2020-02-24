@@ -76,7 +76,7 @@ public class InputManager : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause"))
         {
             GameManager.Instance.PauseGame.Invoke();
         }
