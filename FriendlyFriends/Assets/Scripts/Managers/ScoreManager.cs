@@ -150,8 +150,9 @@ public class ScoreManager : MonoBehaviour
     public void EndScore()
     {
 
-        TurnOnOffCanvasGroup(regScore, true);
+        TurnOnOffCanvasGroup(regScore, false);
         TurnOnOffCanvasGroup(endLevel, true);
+
         //finalTime.text = timeText.text;
         finalScore.text = collText.text;
 
