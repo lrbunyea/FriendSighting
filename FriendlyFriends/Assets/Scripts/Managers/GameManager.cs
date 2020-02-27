@@ -74,6 +74,8 @@ public class GameManager : MonoBehaviour {
         PauseGame.AddListener(PauseGameplay);
         reader = new SaveReader();
         print(reader.s.ToString());
+
+        Cursor.visible = false;
     }
 
     void Update () {
@@ -86,6 +88,13 @@ public class GameManager : MonoBehaviour {
             }
         }
 	}
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        print(pauseStatus);
+        if (pauseStatus)
+            PauseGameplay();
+    }
     #endregion
 
     #region Helper Funtions
@@ -106,11 +115,13 @@ public class GameManager : MonoBehaviour {
     private void PauseGameplay()
     {
         Time.timeScale = 0f;
+        Cursor.visible = true;
     }
 
     public void ResumeGameplay()
     {
         Time.timeScale = 1f;
+        Cursor.visible = false;
     }
 
     public void SetChangeHolding(bool isHolding)

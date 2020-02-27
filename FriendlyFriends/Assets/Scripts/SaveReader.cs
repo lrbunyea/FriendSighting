@@ -17,7 +17,7 @@ public class SaveReader
         }
         else
         {
-            s = new SaveData(0);
+            s = new SaveData(5);
             SaveFile(s);
         }
     }

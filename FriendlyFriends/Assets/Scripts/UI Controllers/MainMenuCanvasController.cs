@@ -74,6 +74,8 @@ public class MainMenuCanvasController : MonoBehaviour
         {
             b.interactable = false;
         }
+
+        Cursor.visible = true;
     }
     
     void Update()

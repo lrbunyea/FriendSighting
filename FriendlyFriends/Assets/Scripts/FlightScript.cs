@@ -36,6 +36,10 @@ public class FlightScript : MonoBehaviour {
     Quaternion correctRot;
     float correctYaw;
 
+    //Achievement Variables
+    bool firstCollision = true;
+    bool firstFan = true;
+
     #endregion
 
     #region Unity API Functions
@@ -91,6 +95,12 @@ public class FlightScript : MonoBehaviour {
                 StopCoroutine(hitBorder());
                 ohNoMoney.Stop();
                 StartCoroutine(hitBorder());
+
+                if (firstCollision)
+                {
+                    firstCollision = false;
+                    //AchievementManager.Instance.UnlockSteamAchievement("Oops_Achievement");
+                }
                 return;
             }
 
@@ -109,6 +119,12 @@ public class FlightScript : MonoBehaviour {
                     force.z = tempx;
                     
                     GetComponent<Rigidbody>().AddForce(force * fanStrength, ForceMode.Impulse);
+
+                    if (firstFan)
+                    {
+                        firstFan = false;
+                        //AchievementManager.Instance.UnlockSteamAchievement("Big_Fan_Achievement");
+                    }
                 }
                 
                 return;
