@@ -80,11 +80,11 @@ public class InputManager : MonoBehaviour {
         {
             GameManager.Instance.PauseGame.Invoke();
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        /* if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("MainMenu");
         }
-
+        */
         /*
         if (Input.GetKeyDown(KeyCode.Space))
             charging = true;
